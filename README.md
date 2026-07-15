@@ -1,38 +1,34 @@
-## UPI Transaction Intelligence Platform
-AI-powered Business Analytics Platform for UPI Transactions
+# UPI Transaction Intelligence Platform
 
-## Project Status
+## Overview
 
-🟢 Phase 1 - Business Understanding ✅
-
-🟢 Phase 2 - Domain Research ✅
-
-🟡 Phase 3 - Business Requirement Document (In Progress)
-
-⚪ Data Collection
-
-⚪ Data Cleaning
-
-⚪ EDA
-
-⚪ Machine Learning
-
-⚪ Dashboard
-
-⚪ Documentation
-
-⚪ Deployment
+An AI-powered FinTech analytics platform that helps analyze UPI transactions, monitor business KPIs, detect anomalies, and predict transaction failures.
 
 ---
 
-## Project Goal
+## Current Phase
 
-Develop an AI-powered analytics platform that helps payment companies monitor transaction performance, identify failure patterns, and improve customer experience.
+- ✅ Phase 1 – Business Understanding
+- ✅ Phase 2 – Domain Research
+- 🟡 Phase 3 – Business Requirement Document (In Progress)
+- ⬜ Phase 4 – Data Collection
+- ⬜ Phase 5 – Data Cleaning
+- ⬜ Phase 6 – Exploratory Data Analysis
+- ⬜ Phase 7 – Machine Learning
+- ⬜ Phase 8 – Dashboard
+- ⬜ Phase 9 – Deployment
 
 ---
 
-## Current Deliverables
+## Project Structure
 
-- Business Problem
-- Stakeholder Analysis
-- Project Scope
+```text
+docs/         -> Business documentation
+data/         -> Raw and processed datasets
+notebooks/    -> Jupyter notebooks
+src/          -> Python source code
+dashboard/    -> Power BI files
+diagrams/     -> Architecture and process diagrams
+images/       -> Screenshots and visuals
+linkedin/     -> LinkedIn article drafts
+```
