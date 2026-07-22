@@ -119,3 +119,73 @@ Help reduce recurring transaction issues by enabling timely identification and i
 | Customer Support Team | Low       | High     | Keep Informed       |
 | Partner Banks         | High      | Medium   | Keep Satisfied      |
 | Customers             | Low       | High     | Monitor and Inform  |
+
+# 7. Project Scope
+
+## 7.1 In Scope
+
+The UPI Transaction Intelligence Platform will include the following functionalities:
+
+- Analyze historical UPI transaction data.
+- Calculate transaction success and failure rates.
+- Identify transaction failure patterns and trends.
+- Categorize transaction failures based on failure reasons.
+- Analyze transaction performance across different banks.
+- Monitor transaction trends over different time periods.
+- Detect unusual transaction behavior (anomaly detection).
+- Generate business insights and KPI reports.
+- Provide interactive dashboards for business users.
+- Support business and operational decision-making through data analytics.
+
+---
+
+## 7.2 Out of Scope
+
+The following functionalities are outside the scope of this project:
+
+- Processing live UPI transactions.
+- Initiating or authorizing payments.
+- Performing fund transfers between bank accounts.
+- Initiating refunds or transaction reversals.
+- Replacing NPCI or banking infrastructure.
+- Diagnosing or fixing bank server failures.
+- Diagnosing or resolving network connectivity issues.
+- Performing customer KYC verification.
+- Integrating with live banking APIs.
+
+---
+
+## 7.3 Project Boundaries
+
+This project focuses on analyzing historical UPI transaction data to identify transaction trends, failure patterns, and business insights. It does not interact directly with live payment processing systems or modify banking operations. The platform is intended to support business intelligence and decision-making rather than execute financial transactions.
+
+# 8. Functional Requirements
+
+The system shall provide the following functionalities:
+
+| ID    | Functional Requirement                                                                             |
+| ----- | -------------------------------------------------------------------------------------------------- |
+| FR-01 | The system shall import and process historical UPI transaction datasets.                           |
+| FR-02 | The system shall display total transactions, successful transactions, and failed transactions.     |
+| FR-03 | The system shall calculate transaction success and failure rates.                                  |
+| FR-04 | The system shall categorize failed transactions based on failure reasons.                          |
+| FR-05 | The system shall provide bank-wise transaction performance analysis.                               |
+| FR-06 | The system shall analyze transaction trends across different time periods.                         |
+| FR-07 | The system shall detect unusual transaction patterns using anomaly detection techniques.           |
+| FR-08 | The system shall provide interactive dashboards for business users.                                |
+| FR-09 | The system shall allow users to filter data by date, bank, transaction type, and failure category. |
+| FR-10 | The system shall generate business insights and KPI reports to support decision-making.            |
+
+# 9. Non-Functional Requirements
+
+The system shall satisfy the following quality requirements:
+
+| ID     | Non-Functional Requirement                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------- |
+| NFR-01 | The system shall provide a simple, user-friendly, and intuitive interface.                                    |
+| NFR-02 | The dashboard should display analytical results within an acceptable response time for the available dataset. |
+| NFR-03 | The system shall maintain data accuracy and consistency during analysis.                                      |
+| NFR-04 | The system shall be designed to support future enhancements such as live data integration.                    |
+| NFR-05 | The system shall protect sensitive transaction data during storage and processing.                            |
+| NFR-06 | The system shall be modular and maintainable for future development.                                          |
+| NFR-07 | The system shall generate reliable and consistent analytical results.                                         |
