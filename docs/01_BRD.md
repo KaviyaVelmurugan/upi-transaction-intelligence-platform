@@ -488,3 +488,102 @@ The following constraints may affect the development, implementation, and evalua
 - The project will be developed within a limited timeline.
 - Priority will be given to implementing the core business requirements and demonstrating the primary business value.
 - Advanced features and enterprise-level capabilities may be considered as future enhancements.
+
+# 15. Risks & Mitigation
+
+The following risks have been identified for the UPI Transaction Intelligence Platform, along with proposed mitigation strategies.
+
+## 15.1 Dataset Availability Risk
+
+**Risk:**  
+A suitable public dataset may not contain critical fields such as failure reason, bank information, transaction status, or sufficient historical records.
+
+**Impact:**  
+The absence of critical fields may limit failure pattern analysis, bank-wise analysis, trend analysis, and anomaly detection.
+
+**Mitigation:**
+
+- Evaluate dataset suitability before implementation.
+- Define mandatory data requirements before selecting the final dataset.
+- Consider alternative public datasets if critical information is unavailable.
+- Where appropriate, evaluate whether compatible datasets can be combined without compromising data quality or analytical validity.
+
+## 15.2 Data Quality Risk
+
+**Risk:**  
+The dataset may contain missing values, duplicate records, inconsistent bank names, invalid transaction amounts, or other data quality issues.
+
+**Impact:**  
+Poor data quality may affect KPI calculations, analytical accuracy, dashboard results, and AI/ML model performance.
+
+**Mitigation:**
+
+- Perform data profiling before analysis.
+- Assess the impact of missing values based on field importance.
+- Identify and investigate duplicate records before removal.
+- Standardize inconsistent categorical values.
+- Validate transaction amounts according to defined business rules.
+- Document all data-cleaning and transformation steps.
+
+## 15.3 AI/ML Model Performance Risk
+
+**Risk:**  
+The selected anomaly detection model may produce excessive false positives or identify too many transactions as anomalies.
+
+**Impact:**  
+Excessive alerts may create alert fatigue and reduce the usefulness of the system for business and operations teams.
+
+**Mitigation:**
+
+- Evaluate multiple anomaly detection approaches.
+- Tune model thresholds appropriately.
+- Use anomaly scores or severity levels where applicable.
+- Group related anomalies into meaningful patterns.
+- Prioritize high-impact anomalies.
+- Consider aggregate-level anomaly detection based on dimensions such as bank, time period, or failure category.
+
+## 15.4 Root Cause Interpretation Risk
+
+**Risk:**  
+The platform may identify unusual transaction patterns without having access to internal bank or payment infrastructure systems.
+
+**Impact:**  
+Business users may incorrectly interpret detected patterns as confirmed technical root causes.
+
+**Mitigation:**
+
+- Clearly distinguish between detected patterns and confirmed root causes.
+- Present findings as indicators requiring further investigation.
+- Avoid making unsupported claims about internal bank infrastructure.
+- Provide supporting metrics and contextual information for operational investigation.
+
+## 15.5 Project Timeline Risk
+
+**Risk:**  
+Limited project time may result in insufficient time to complete all planned features and advanced capabilities.
+
+**Impact:**  
+The project may become incomplete or overly focused on documentation instead of demonstrating the core solution.
+
+**Mitigation:**
+
+- Prioritize the Minimum Viable Product (MVP).
+- Focus first on core data analysis, SQL analysis, Power BI dashboard, and the primary AI/ML use case.
+- Treat advanced features as future enhancements.
+- Follow a phased implementation approach.
+- Track progress against the high-level project timeline.
+
+## 15.6 Business Interpretation Risk
+
+**Risk:**  
+Users may incorrectly interpret a higher transaction failure rate as evidence that a particular bank or entity is directly responsible for the failures.
+
+**Impact:**  
+Incorrect conclusions may lead to inappropriate business decisions or operational actions.
+
+**Mitigation:**
+
+- Present analytical findings with appropriate context.
+- Compare multiple dimensions such as time, transaction type, failure category, and transaction volume.
+- Clearly distinguish correlation from causation.
+- Use the platform to identify patterns and indicators rather than automatically assigning blame or determining root cause.
