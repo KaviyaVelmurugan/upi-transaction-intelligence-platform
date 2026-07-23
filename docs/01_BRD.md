@@ -416,3 +416,75 @@ The following KPIs shall be calculated consistently across the platform:
 - Anomaly Count, where applicable
 
 The calculation logic for each KPI shall remain consistent across analytical reports and dashboards.
+
+# 13. Assumptions
+
+The following assumptions have been considered during the planning and development of the UPI Transaction Intelligence Platform.
+
+## 13.1 Data Availability
+
+- It is assumed that a suitable publicly available dataset containing historical transaction records will be available for the project.
+- It is assumed that the selected dataset can legally be used for analytical and educational purposes based on its applicable license and usage terms.
+- It is assumed that the dataset contains sufficient historical records to identify transaction trends and failure patterns.
+
+## 13.2 Transaction Data
+
+- It is assumed that each transaction contains relevant information such as transaction date, transaction status, transaction amount, and transaction type.
+- It is assumed that sufficient failure-related information is available to analyze transaction failure patterns.
+- It is assumed that transaction records contain sufficient information to compare performance across relevant banks or banking entities.
+- It is assumed that transaction data can be cleaned and standardized to support reliable analysis.
+
+## 13.3 Historical Pattern Analysis
+
+- It is assumed that historical transaction data contains sufficient patterns to establish a baseline for normal transaction behavior.
+- It is assumed that historical patterns can be used to identify significant deviations or unusual transaction behavior.
+- It is assumed that the available data is representative enough to support meaningful analytical conclusions.
+
+## 13.4 Business and Operations Users
+
+- It is assumed that business and operations users have sufficient domain knowledge to interpret transaction KPIs, trends, failure patterns, and anomaly insights.
+- It is assumed that users can use the analytical insights provided by the platform to support further investigation and operational decision-making.
+
+## 13.5 AI/ML Assumptions
+
+- It is assumed that the available historical transaction data is sufficient to evaluate suitable anomaly detection techniques.
+- It is assumed that the selected AI/ML approach can identify unusual transaction patterns based on the available data.
+- It is assumed that the final AI/ML technique will be selected after evaluating the characteristics and quality of the dataset.
+
+# 14. Constraints
+
+The following constraints may affect the development, implementation, and evaluation of the UPI Transaction Intelligence Platform.
+
+## 14.1 Data Access Constraints
+
+- The project will rely on publicly available, anonymized, or synthetic datasets.
+- Real production UPI transaction data cannot be accessed for this personal portfolio project.
+- Access to confidential organizational transaction data would require appropriate organizational authorization, policies, and agreements.
+- Sensitive organizational data cannot be published in the public GitHub repository.
+
+## 14.2 Data Availability Constraints
+
+- The selected dataset may not contain all fields required for the complete business analysis.
+- Missing critical fields, such as failure reasons or bank information, may limit the ability to investigate specific transaction failure patterns.
+- The dataset may contain missing, duplicate, inconsistent, or inaccurate records that require preprocessing.
+- The quality and completeness of the dataset may affect the reliability of analytical and AI/ML results.
+
+## 14.3 Real-Time Integration Constraints
+
+- The initial project will focus on historical transaction analysis rather than real-time transaction monitoring.
+- The platform will not directly integrate with live UPI, NPCI, bank, or payment processing systems.
+- The platform will not perform real-time transaction processing or directly trigger operational actions.
+- Real-time monitoring and live system integration may be considered as future enhancements.
+
+## 14.4 Technical Constraints
+
+- The project will be developed as a focused Minimum Viable Product (MVP) rather than a complete enterprise-grade production system.
+- The project may not replicate the scale, latency, availability, security, and infrastructure requirements of a production FinTech platform.
+- The performance of the AI/ML model will depend on the quality, volume, and characteristics of the available dataset.
+- The project may evaluate multiple AI/ML techniques before selecting the most appropriate approach.
+
+## 14.5 Project Timeline Constraints
+
+- The project will be developed within a limited timeline.
+- Priority will be given to implementing the core business requirements and demonstrating the primary business value.
+- Advanced features and enterprise-level capabilities may be considered as future enhancements.
