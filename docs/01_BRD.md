@@ -646,3 +646,143 @@ The project will be considered successful when the developed MVP demonstrates th
 The final solution should demonstrate the complete flow:
 
 **Business Problem → Data Analysis → Failure Pattern Identification → KPI Monitoring → Anomaly Detection → Business Insights → Operational Investigation**
+
+# 17. Project Deliverables
+
+The following deliverables will be produced as part of the UPI Transaction Intelligence Platform project.
+
+## 17.1 Business Analysis Deliverables
+
+- Business Requirements Document (BRD)
+- Business Problem Definition
+- Project Scope and Objectives
+- Stakeholder Analysis
+- Functional and Non-Functional Requirements
+- Business Rules
+- Assumptions, Constraints, Risks, and Mitigation Strategies
+- Success Criteria and KPIs
+
+## 17.2 Data Deliverables
+
+- Selected Public Transaction Dataset
+- Dataset Source and License Information
+- Data Dictionary
+- Data Quality Assessment
+- Data Cleaning and Transformation Documentation
+
+## 17.3 Data Analysis Deliverables
+
+- SQL-Based Transaction Analysis
+- Python Exploratory Data Analysis (EDA)
+- Transaction Success and Failure Analysis
+- Bank-wise Performance Analysis
+- Failure Category Analysis
+- Time-Based Transaction Trend Analysis
+- Transaction Failure Pattern Analysis
+
+## 17.4 Business Intelligence Deliverables
+
+- Interactive Power BI Dashboard
+- Transaction Performance KPIs
+- Transaction Failure Analysis
+- Bank-wise Failure Analysis
+- Failure Category Analysis
+- Time-Based Trend Analysis
+- Anomaly Visualization
+
+## 17.5 AI/ML Deliverables
+
+- Anomaly Detection Approach
+- Feature Engineering Documentation
+- Model Development
+- Model Evaluation
+- Anomaly Detection Results
+- Anomaly Interpretation and Business Insights
+
+## 17.6 Final Project Deliverables
+
+- Business Insights Report
+- Business Recommendations
+- Final Project Documentation
+- Project Architecture Documentation
+- GitHub Repository
+- Project README
+- Project Demonstration or Presentation
+
+## 17.7 Portfolio Deliverables
+
+- Public GitHub Project Repository
+- LinkedIn Article Documenting the Project Journey
+- Project Screenshots and Visualizations
+- Summary of Business Problem, Solution, and Key Insights
+
+# 18. High-Level Timeline
+
+The project will be executed through a phased approach, with priority given to completing the Minimum Viable Product (MVP) within the planned project timeline.
+
+| Phase    | Activity                                    | Key Output                            |
+| -------- | ------------------------------------------- | ------------------------------------- |
+| Phase 1  | Project Ideation & Domain Understanding     | FinTech Domain Understanding          |
+| Phase 2  | Industry Research & Problem Identification  | Defined Business Problem              |
+| Phase 3  | Business Requirements Analysis              | Completed BRD                         |
+| Phase 4  | Data Acquisition & Dataset Selection        | Final Dataset & Data Dictionary       |
+| Phase 5  | Data Cleaning & Exploratory Data Analysis   | Clean Dataset & EDA Insights          |
+| Phase 6  | SQL-Based Data Analysis                     | Analytical Queries & Findings         |
+| Phase 7  | Business Intelligence Development           | Power BI Dashboard                    |
+| Phase 8  | AI/ML Development                           | Anomaly Detection Model               |
+| Phase 9  | Business Insights & Recommendations         | Insights & Actionable Recommendations |
+| Phase 10 | Final Documentation & Portfolio Publication | GitHub Repository & LinkedIn Article  |
+
+## 18.1 Execution Approach
+
+The project will follow an iterative and phased development approach.
+
+The core MVP will prioritize:
+
+1. Business Requirements
+2. Data Acquisition
+3. Data Quality and Preparation
+4. Transaction Analysis
+5. Power BI Dashboard
+6. Anomaly Detection
+7. Business Insights
+
+Advanced features will be considered after the core MVP has been successfully completed.
+
+## 18.2 Timeline Management
+
+The project timeline will be reviewed periodically based on:
+
+- Dataset availability and complexity.
+- Data quality issues.
+- Complexity of analytical requirements.
+- AI/ML model development requirements.
+- Available project development time.
+
+The project will prioritize high-value business requirements and defer non-critical enhancements where necessary to maintain project progress.
+
+## 19.1 Project Ownership
+
+| Role                | Assigned To       | Responsibility                                                 |
+| ------------------- | ----------------- | -------------------------------------------------------------- |
+| Project Owner       | Kaviya Velmurugan | Overall project ownership and coordination                     |
+| Project Contributor | Kaviya Velmurugan | Business analysis, data analysis, BI, and AI/ML implementation |
+
+## 19.2 Project Context
+
+This is an independent FinTech portfolio project developed by Kaviya Velmurugan as part of her learning and career development.
+
+The project demonstrates practical exposure to:
+
+- FinTech domain understanding
+- Business problem analysis
+- Business requirements documentation
+- Data analysis
+- SQL
+- Python
+- Power BI
+- AI/ML-based anomaly detection
+- Business insights and recommendations
+
+The roles and responsibilities listed above represent the activities performed within this independent project and do not imply current professional employment in these roles.
+
