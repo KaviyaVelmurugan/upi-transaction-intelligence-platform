@@ -587,3 +587,62 @@ Incorrect conclusions may lead to inappropriate business decisions or operationa
 - Compare multiple dimensions such as time, transaction type, failure category, and transaction volume.
 - Clearly distinguish correlation from causation.
 - Use the platform to identify patterns and indicators rather than automatically assigning blame or determining root cause.
+
+# 16. Success Criteria & KPIs
+
+The success of the UPI Transaction Intelligence Platform will be measured based on its ability to improve visibility into transaction failure patterns, support operational investigation, and identify unusual transaction behavior.
+
+## 16.1 Business Success Criteria
+
+The project will be considered successful if the platform enables business and operations teams to:
+
+- Access transaction performance information through a centralized analytical platform.
+- Monitor transaction success and failure rates.
+- Identify major transaction failure categories and patterns.
+- Analyze transaction failures across banks and relevant transaction segments.
+- Analyze failure trends across different time periods.
+- Identify unusual changes in transaction failure behavior.
+- Use analytical insights to support further investigation and operational decision-making.
+- Reduce dependency on fragmented reports for understanding transaction failure patterns.
+
+## 16.2 Key Performance Indicators (KPIs)
+
+The platform will provide the following key performance indicators:
+
+- **Total Transaction Volume:** Total number of transactions processed during the selected period.
+- **Total Failed Transactions:** Total number of transactions recorded with a failed status.
+- **Transaction Success Rate:** Percentage of transactions successfully completed relative to total transactions.
+- **Transaction Failure Rate:** Percentage of failed transactions relative to total transactions.
+- **Bank-wise Failure Rate:** Failure rate calculated for each bank or relevant banking entity.
+- **Failure Category Distribution:** Distribution of failed transactions across standardized failure categories.
+- **Anomaly Count:** Number of unusual transaction patterns identified by the anomaly detection component.
+
+## 16.3 Analytical Dimensions
+
+The platform will support analysis of KPIs across relevant dimensions, including:
+
+- Date
+- Time
+- Bank
+- Transaction Type
+- Failure Category
+- Transaction Amount
+
+## 16.4 AI/ML Success Criteria
+
+The anomaly detection component will be considered useful if it:
+
+- Identifies significant deviations from established transaction patterns.
+- Detects unusual changes in transaction failure behavior.
+- Produces a manageable number of meaningful anomaly alerts.
+- Enables prioritization of high-impact or high-severity anomalies.
+- Provides supporting transaction metrics that help business and operations teams investigate detected anomalies.
+- Demonstrates meaningful analytical value when evaluated against historical transaction patterns.
+
+## 16.5 Overall Project Success
+
+The project will be considered successful when the developed MVP demonstrates that a centralized analytical platform can improve visibility into transaction failure patterns and support business and operational investigation.
+
+The final solution should demonstrate the complete flow:
+
+**Business Problem → Data Analysis → Failure Pattern Identification → KPI Monitoring → Anomaly Detection → Business Insights → Operational Investigation**
