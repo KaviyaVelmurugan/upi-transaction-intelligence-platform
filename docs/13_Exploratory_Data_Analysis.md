@@ -340,3 +340,44 @@ The geographic patterns may reflect differences in population, urbanization, mer
 - Normalize future geographic analysis using population or active-user data when available.
 - Investigate whether transaction types and merchant categories vary across states.
 - Avoid interpreting the synthetic state distribution as official UPI market-share data.
+
+## 6.2.9 Network Type Distribution
+
+### Business Question
+
+Which network types are most frequently used for UPI transactions?
+
+### Objective
+
+To analyze transaction distribution across network types and understand the connectivity channels supporting UPI activity.
+
+### Results
+
+| Network Type | Transaction Count | Transaction Share |
+| ------------ | ----------------: | ----------------: |
+| 4G           |           149,813 |            59.93% |
+| 5G           |            62,582 |            25.03% |
+| WiFi         |            25,134 |            10.05% |
+| 3G           |            12,471 |             4.99% |
+
+### Observation
+
+4G is the most frequently used network type, supporting **149,813 transactions (59.93%)**. It is followed by 5G with **62,582 transactions (25.03%)**, WiFi with **25,134 transactions (10.05%)**, and 3G with **12,471 transactions (4.99%)**.
+
+Cellular networks collectively support **89.95%** of all transactions, while WiFi accounts for the remaining 10.05%.
+
+### Business Interpretation
+
+The results show that transaction activity in this synthetic dataset is strongly dependent on mobile connectivity. The dominance of 4G indicates that it remains the primary network environment for UPI payments, despite increasing 5G usage.
+
+The continued presence of 3G transactions suggests that the payment experience must remain functional under slower or less stable network conditions.
+
+Transaction count alone does not indicate whether one network is more reliable than another. Reliability must be evaluated using network-specific success and failure rates.
+
+### Recommendation
+
+- Optimize transaction flows for 4G because it supports the highest transaction volume.
+- Maintain lightweight and resilient payment journeys for slower network conditions.
+- Compare failure and fraud rates across network types during bivariate analysis.
+- Monitor whether transaction response and completion patterns change by network type.
+- Avoid assuming that lower network usage automatically indicates weaker performance.
