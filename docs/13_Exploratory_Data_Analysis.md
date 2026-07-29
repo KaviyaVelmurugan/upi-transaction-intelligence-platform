@@ -240,3 +240,52 @@ These findings describe the synthetic dataset and should not be interpreted as t
 - Establish volume-sensitive alerts because anomalies in larger banks may affect more customers.
 - Evaluate whether transaction patterns vary by time, transaction type, device, or network for each bank.
 - Avoid ranking bank quality using volume alone; operational performance requires success-rate and risk measures.
+
+## 6.2.6 Receiver Bank Distribution
+
+### Business Question
+
+Which receiver banks receive the highest number and value of UPI transactions?
+
+### Objective
+
+To compare receiver banks based on transaction count, transaction share, total received value, and average received transaction value.
+
+### Results
+
+| Receiver Bank | Transaction Count | Transaction Share | Total Transaction Value | Average Transaction Value |
+| ------------- | ----------------: | ----------------: | ----------------------: | ------------------------: |
+| SBI           |            62,378 |            24.95% |             ₹82,565,386 |                 ₹1,323.63 |
+| HDFC          |            37,651 |            15.06% |             ₹49,157,476 |                 ₹1,305.61 |
+| ICICI         |            29,944 |            11.98% |             ₹39,029,938 |                 ₹1,303.43 |
+| IndusInd      |            25,086 |            10.03% |             ₹32,677,495 |                 ₹1,302.62 |
+| Yes Bank      |            25,009 |            10.00% |             ₹32,838,599 |                 ₹1,313.07 |
+| Axis          |            24,992 |            10.00% |             ₹33,007,678 |                 ₹1,320.73 |
+| PNB           |            24,802 |             9.92% |             ₹32,160,203 |                 ₹1,296.68 |
+| Kotak         |            20,138 |             8.06% |             ₹26,502,234 |                 ₹1,316.03 |
+
+### Observation
+
+SBI receives the highest number of transactions with **62,378 transactions**, representing **24.95%** of the dataset. HDFC follows with **37,651 transactions (15.06%)**, while ICICI receives **29,944 transactions (11.98%)**.
+
+Together, the three leading receiver banks account for **51.99%** of all received transactions.
+
+SBI also records the largest received transaction value at approximately **₹82.57 million**. Average transaction values remain similar across banks, ranging from approximately **₹1,296.68 to ₹1,323.63**.
+
+### Business Interpretation
+
+The receiver-bank pattern is highly similar to the sender-bank distribution. SBI, HDFC, and ICICI are the largest banking participants on both sides of transactions in this synthetic dataset.
+
+Because average values are relatively consistent, the differences in total received value are primarily caused by transaction volume.
+
+Receiver-bank volume is operationally important because disruptions involving a high-volume beneficiary bank may affect a comparatively large number of payments.
+
+These values describe the synthetic dataset and should not be interpreted as actual market-share statistics.
+
+### Recommendation
+
+- Monitor receiver-bank transaction success and failure rates alongside transaction volume.
+- Give higher operational visibility to disruptions affecting high-volume receiving banks.
+- Compare sender-to-receiver bank combinations during bivariate analysis.
+- Investigate whether particular bank pairs exhibit unusual failure or fraud patterns.
+- Avoid interpreting transaction count alone as an indicator of bank performance or service quality.
