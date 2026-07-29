@@ -83,3 +83,45 @@ The analysis indicates that UPI is primarily used for everyday consumer spending
 ### Recommendation
 
 Banks, payment service providers, and merchants should continue strengthening digital payment experiences in high-volume categories such as Grocery, Food, and Shopping. Targeted cashback offers, reward programs, or promotional campaigns could encourage increased UPI adoption in lower-volume categories like Healthcare and Education.
+
+## 6.2.3 Transaction Status Distribution
+
+### Business Question
+
+What proportion of UPI transactions are successful and failed?
+
+### Objective
+
+To measure transaction outcomes and establish the dataset's overall transaction success and failure rates.
+
+### Results
+
+| Transaction Status | Transaction Count | Percentage |
+|---|---:|---:|
+| SUCCESS | 237,624 | 95.05% |
+| FAILED | 12,376 | 4.95% |
+| **Total** | **250,000** | **100.00%** |
+
+### Observation
+
+Of the 250,000 transactions in the dataset, **237,624 transactions (95.05%)** were successful, while **12,376 transactions (4.95%)** failed.
+
+This means approximately one out of every twenty transactions in the synthetic dataset was unsuccessful.
+
+### Business Interpretation
+
+The high success rate indicates that most transactions were completed successfully. However, the 4.95% failure rate still represents a meaningful number of unsuccessful transactions at this dataset's scale.
+
+Failed transactions may negatively affect customer experience and platform trust. Therefore, the failure segment requires further investigation across dimensions such as time, bank, transaction type, device type, and network type.
+
+Because the dataset does not contain a detailed failure-reason field, the analysis can identify patterns associated with failed transactions but cannot determine their confirmed technical root causes.
+
+### Recommendation
+
+The business and operations teams should:
+
+- Monitor transaction success and failure rates as core operational KPIs.
+- Analyze failure rates by sender bank, receiver bank, transaction type, device type, network type, and time period.
+- Establish alerts for unusual increases in the failure rate.
+- Prioritize high-volume segments where even a small failure-rate increase could affect many transactions.
+- Obtain operational error codes or failure-reason data in a production environment for confirmed root-cause investigation.
