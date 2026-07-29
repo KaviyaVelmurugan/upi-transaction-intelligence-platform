@@ -189,3 +189,54 @@ However, high-value transactions may carry greater financial exposure and can be
 - Analyze high-value transactions by merchant category, bank, transaction type, and fraud flag.
 - Do not delete IQR outliers without investigating their business context.
 - Apply enhanced monitoring to unusual combinations of amount, device, network, time, and transaction behavior.
+
+## 6.2.5 Sender Bank Distribution
+
+### Business Question
+
+Which sender banks process the highest number and value of UPI transactions?
+
+### Objective
+
+To compare sender banks based on transaction count, share of transaction volume, total transaction value, and average transaction value.
+
+### Results
+
+| Sender Bank | Transaction Count | Transaction Share | Total Transaction Value | Average Transaction Value |
+| ----------- | ----------------: | ----------------: | ----------------------: | ------------------------: |
+| SBI         |            62,693 |            25.08% |             ₹82,816,520 |                 ₹1,320.99 |
+| HDFC        |            37,485 |            14.99% |             ₹49,791,194 |                 ₹1,328.30 |
+| ICICI       |            29,769 |            11.91% |             ₹38,731,193 |                 ₹1,301.06 |
+| IndusInd    |            25,173 |            10.07% |             ₹32,842,711 |                 ₹1,304.68 |
+| Axis        |            25,042 |            10.02% |             ₹32,472,530 |                 ₹1,296.72 |
+| PNB         |            24,946 |             9.98% |             ₹32,476,972 |                 ₹1,301.89 |
+| Yes Bank    |            24,860 |             9.94% |             ₹32,492,477 |                 ₹1,307.02 |
+| Kotak       |            20,032 |             8.01% |             ₹26,315,412 |                 ₹1,313.67 |
+
+### Observation
+
+SBI records the highest sender-side transaction volume with **62,693 transactions**, accounting for **25.08%** of all transactions. HDFC follows with **37,485 transactions (14.99%)**, while ICICI contributes **29,769 transactions (11.91%)**.
+
+Together, SBI, HDFC, and ICICI account for **51.98%** of sender-side transaction volume.
+
+The total transaction value across all sender banks is **₹327,939,009**. SBI records the highest total value at approximately **₹82.82 million**, mainly because it has the largest transaction count.
+
+Average transaction values are relatively similar across all banks, ranging from approximately **₹1,296.72 to ₹1,328.30**.
+
+### Business Interpretation
+
+The sender-bank distribution in this synthetic dataset is concentrated around SBI, HDFC, and ICICI, with SBI processing approximately one-quarter of all transactions.
+
+Because average transaction values are similar across banks, differences in total transaction value are primarily driven by transaction volume rather than substantially larger individual payments.
+
+A high-volume bank can have a greater effect on overall platform performance. Even a small increase in its failure or fraud rate could affect a larger absolute number of transactions.
+
+These findings describe the synthetic dataset and should not be interpreted as the actual UPI market shares of the named banks.
+
+### Recommendation
+
+- Prioritize transaction-performance monitoring for high-volume sender banks.
+- Compare bank-level success, failure, and fraud rates rather than relying only on transaction counts.
+- Establish volume-sensitive alerts because anomalies in larger banks may affect more customers.
+- Evaluate whether transaction patterns vary by time, transaction type, device, or network for each bank.
+- Avoid ranking bank quality using volume alone; operational performance requires success-rate and risk measures.
