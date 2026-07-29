@@ -816,3 +816,47 @@ The dataset is synthetic and covers only ten states, so these findings should be
 - Include Maharashtra in operational improvement initiatives because it generates the highest failure count.
 - Compare state performance by network type, device type, sender bank, and transaction hour.
 - Use both failure counts and failure rates in the dashboard to avoid misleading geographic comparisons.
+
+## 6.3.6 Device Type vs Transaction Status
+
+### Business Question
+
+Does transaction performance vary across device types?
+
+### Objective
+
+To compare transaction volume, failed-transaction counts, and failure rates across Android, iOS, and Web transactions.
+
+### Findings
+
+| Device Type | Total Transactions | Failed Transactions | Failure Rate |
+| ----------- | -----------------: | ------------------: | -----------: |
+| Web         |             12,610 |                 650 |        5.15% |
+| Android     |            187,777 |               9,278 |        4.94% |
+| iOS         |             49,613 |               2,448 |        4.93% |
+
+### Observation
+
+Web transactions recorded the highest failure rate at **5.15%**, which is 0.20 percentage points above the platform failure rate of **4.95%**.
+
+Android generated **9,278 failed transactions**, representing the largest absolute failure count. However, Android also processed 187,777 transactions, or approximately 75% of the complete dataset. Its failure rate of **4.94%** was approximately equal to the platform average.
+
+iOS recorded the lowest failure rate at **4.93%**, although the difference between Android and iOS was only 0.01 percentage points.
+
+The complete variation between the highest and lowest device failure rates was **0.22 percentage points**.
+
+### Business Interpretation
+
+Web transactions show slightly higher relative failure exposure than mobile transactions. However, the difference is modest and should be validated before concluding that the Web channel is less reliable.
+
+Android creates the greatest operational workload because of its dominant transaction volume—not because it has an unusually high failure rate. Android and iOS exhibit nearly identical transaction performance.
+
+Device type alone appears to provide limited separation between successful and failed transactions. Its value may become clearer when combined with network type, transaction hour, bank, or transaction amount.
+
+### Recommendation
+
+- Monitor the Web channel because its failure rate is moderately above the platform average.
+- Prioritize Android in operational monitoring because its large volume produces most failed transactions.
+- Do not interpret Android’s high failure count as evidence of weaker reliability.
+- Analyze device and network combinations to identify more specific performance patterns.
+- Apply statistical testing later to determine whether the Web–mobile difference is meaningful.
