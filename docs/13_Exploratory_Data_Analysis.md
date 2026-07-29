@@ -531,3 +531,37 @@ Because the dataset is synthetic, the observed fraud rate should not be interpre
 - Avoid performing data resampling before splitting the dataset, as this could cause data leakage.
 - Analyze fraud patterns by transaction type, amount, bank, state, device, network, merchant category, and time.
 - Develop risk thresholds that balance fraud detection with customer experience and review capacity.
+
+## 6.2 Univariate Analysis Summary
+
+The univariate analysis established the individual distributions of the project's principal transaction, banking, geographic, channel, amount, outcome, and fraud variables.
+
+### Key Findings
+
+- P2P is the largest transaction type, contributing **44.98%** of transactions.
+- Grocery is the leading merchant category with a **19.99%** share.
+- The overall transaction success rate is **95.05%**, while the failure rate is **4.95%**.
+- Transaction amounts are strongly right-skewed, with a median of **₹629** and a mean of **₹1,311.76**.
+- The IQR method flags **8.47%** of transaction amounts as potential high-value outliers; these are not automatically errors or fraud.
+- SBI has the highest sender-bank and receiver-bank transaction shares in the synthetic dataset.
+- Maharashtra generates the highest sender-state transaction volume at **14.97%**.
+- Mobile devices account for **94.96%** of transactions, led by Android at **75.11%**.
+- Cellular networks support **89.95%** of transactions, with 4G contributing **59.93%**.
+- Fraudulent transactions represent only **0.192%** of records, producing an imbalance ratio of approximately **519.83:1**.
+
+### Analytical Implications
+
+The univariate results provide important baseline distributions but do not establish relationships or causation. For example, a bank, device, or network with a high transaction count may also have a high number of failed or fraudulent transactions simply because it processes more activity.
+
+The next phase must therefore compare normalized rates across variables rather than relying only on absolute counts.
+
+### Next Step
+
+The project will proceed to bivariate analysis to investigate relationships including:
+
+- Transaction type versus status
+- Bank versus success and failure rates
+- Device and network type versus transaction outcomes
+- Merchant category versus transaction amount
+- Transaction amount versus fraud
+- Bank, state, device, and network versus fraud rate
