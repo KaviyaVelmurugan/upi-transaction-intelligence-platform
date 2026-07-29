@@ -61,3 +61,25 @@ The high volume of P2P transactions indicates that users primarily utilize UPI f
 ### Recommendation
 
 Financial institutions and UPI service providers should continue enhancing the user experience for P2P and P2M transactions, as these represent nearly 80% of all transactions. Promotional campaigns and cashback offers could be introduced for bill payments and recharge services to encourage greater adoption and increase transaction diversity.
+
+## 6.2.2 Merchant Category Distribution
+
+### Business Question
+
+Which merchant categories receive the highest number of UPI transactions?
+
+### Objective
+
+To analyze the distribution of merchant categories and identify the sectors with the highest transaction volume.
+
+### Observation
+
+The dataset consists of transactions across ten merchant categories. Grocery transactions account for the highest share with **49,966 transactions (19.99%)**, followed by Food with **37,464 transactions (14.99%)** and Shopping with **29,872 transactions (11.95%)**. Fuel (10.03%), Other (9.93%), Utilities (8.94%), Transport (8.04%), and Entertainment (8.04%) contribute a moderate share of transactions. Healthcare (5.07%) and Education (3.04%) represent the smallest transaction volumes.
+
+### Business Interpretation
+
+The analysis indicates that UPI is primarily used for everyday consumer spending, particularly in grocery stores and food outlets. Shopping and fuel payments also contribute significantly, highlighting the growing preference for digital payments in routine purchases. Lower transaction volumes in healthcare and education suggest that these expenses occur less frequently or are often settled using alternative payment methods.
+
+### Recommendation
+
+Banks, payment service providers, and merchants should continue strengthening digital payment experiences in high-volume categories such as Grocery, Food, and Shopping. Targeted cashback offers, reward programs, or promotional campaigns could encourage increased UPI adoption in lower-volume categories like Healthcare and Education.
