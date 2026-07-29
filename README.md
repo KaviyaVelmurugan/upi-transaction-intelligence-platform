@@ -12,11 +12,12 @@ An AI-powered FinTech analytics platform that helps analyze UPI transactions, mo
 - ✅ Phase 2 – Domain Research
 - ✅ Phase 3 – Business Requirement Document 
 - ✅ Phase 4 – Data Collection 
-- 🟡 Phase 5 – Data Cleaning (In Progress)
-- ⬜ Phase 6 – Exploratory Data Analysis
-- ⬜ Phase 7 – Machine Learning
-- ⬜ Phase 8 – Dashboard
-- ⬜ Phase 9 – Deployment
+- ✅ Phase 5 – Data Quality & Cleaning 
+- 🟡 Phase 6 – Exploratory Data Analysis (In Progress)
+- ⬜ Phase 7 – SQL Analytics
+- ⬜ Phase 8 – Power BI Dashboard
+- ⬜ Phase 9 – Machine Learning
+- ⬜ Phase 10 – Final Documentation 
 
 ---
 
