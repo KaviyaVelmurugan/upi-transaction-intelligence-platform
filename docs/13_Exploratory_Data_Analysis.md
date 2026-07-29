@@ -763,3 +763,56 @@ These findings represent associations in the synthetic dataset and do not establ
 - Analyze sender-bank and receiver-bank combinations to identify specific transaction routes with elevated failure rates.
 - Combine bank information with transaction hour, network type, device type, and transaction amount.
 - Validate observed differences statistically before treating them as meaningful performance gaps.
+
+## 6.3.5 Sender State vs Transaction Status
+
+### Business Question
+
+How does transaction performance vary across sender states?
+
+### Objective
+
+To compare transaction volume, successful transactions, failed transactions, and failure rates across states and identify geographic areas requiring operational attention.
+
+### Findings
+
+| Sender State   | Total Transactions | Failed Transactions | Failure Rate |
+| -------------- | -----------------: | ------------------: | -----------: |
+| Uttar Pradesh  |             30,125 |               1,572 |        5.22% |
+| Tamil Nadu     |             25,367 |               1,298 |        5.12% |
+| West Bengal    |             19,972 |               1,007 |        5.04% |
+| Andhra Pradesh |             20,006 |               1,000 |        5.00% |
+| Delhi          |             24,870 |               1,237 |        4.97% |
+| Maharashtra    |             37,427 |               1,842 |        4.92% |
+| Karnataka      |             29,756 |               1,447 |        4.86% |
+| Rajasthan      |             19,981 |                 958 |        4.79% |
+| Gujarat        |             20,061 |                 959 |        4.78% |
+| Telangana      |             22,435 |               1,056 |        4.71% |
+
+### Observation
+
+Uttar Pradesh recorded the highest failure rate at **5.22%**, followed by Tamil Nadu at **5.12%** and West Bengal at **5.04%**. Telangana recorded the lowest failure rate at **4.71%**.
+
+Maharashtra generated the highest absolute number of failures, with **1,842 failed transactions**, because it also recorded the largest transaction volume. Its failure rate of **4.92%** was slightly below the overall platform rate of **4.95%**.
+
+Uttar Pradesh produced the second-highest failure count and the highest failure rate, making it important from both relative-performance and operational-impact perspectives.
+
+The difference between the highest and lowest state failure rates is **0.51 percentage points**.
+
+### Business Interpretation
+
+State-level performance shows moderate variation. Uttar Pradesh requires particular attention because its failure rate is above average while its transaction volume is also high.
+
+Maharashtra represents a high-volume operational priority. Although its failure rate is not unusually high, even a small improvement could prevent a meaningful number of failed transactions.
+
+Geographic differences may be associated with other factors such as network type, device usage, bank combinations, transaction timing, or transaction mix. The state itself should not be treated as the direct cause of failure.
+
+The dataset is synthetic and covers only ten states, so these findings should be interpreted as portfolio-case evidence rather than conclusions about actual state-level UPI performance.
+
+### Recommendation
+
+- Prioritize Uttar Pradesh for further investigation because it combines high volume with the highest failure rate.
+- Monitor Tamil Nadu because its failure rate is also materially above the platform average.
+- Include Maharashtra in operational improvement initiatives because it generates the highest failure count.
+- Compare state performance by network type, device type, sender bank, and transaction hour.
+- Use both failure counts and failure rates in the dashboard to avoid misleading geographic comparisons.
