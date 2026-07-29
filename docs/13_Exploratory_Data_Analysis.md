@@ -665,3 +665,52 @@ The relatively narrow failure-rate range suggests that merchant category alone d
 - Avoid concluding that Education has a systemic problem based only on its observed percentage.
 - Compare merchant categories across transaction amount, bank, device, network, and time.
 - Apply a statistical test later to determine whether category-level differences are meaningful.
+
+## 6.3.3 Sender Bank vs Transaction Status
+
+### Business Question
+
+How does transaction performance vary across sender banks?
+
+### Objective
+
+To compare transaction volume, successful transactions, failed transactions, and failure rates across sender banks and identify banks requiring operational attention.
+
+### Findings
+
+| Sender Bank | Total Transactions | Failed Transactions | Failure Rate |
+| ----------- | -----------------: | ------------------: | -----------: |
+| Yes Bank    |             24,860 |               1,269 |        5.10% |
+| ICICI       |             29,769 |               1,499 |        5.04% |
+| Kotak       |             20,032 |                 998 |        4.98% |
+| Axis        |             25,042 |               1,239 |        4.95% |
+| IndusInd    |             25,173 |               1,247 |        4.95% |
+| SBI         |             62,693 |               3,095 |        4.94% |
+| PNB         |             24,946 |               1,221 |        4.89% |
+| HDFC        |             37,485 |               1,808 |        4.82% |
+
+### Observation
+
+Yes Bank recorded the highest sender-bank failure rate at **5.10%**, followed by ICICI at **5.04%**. HDFC recorded the lowest failure rate at **4.82%**.
+
+SBI generated the highest absolute number of failed transactions, with **3,095 failures**, despite its failure rate of **4.94%** being close to the overall platform failure rate of **4.95%**. This is primarily associated with SBI’s larger transaction volume of 62,693 transactions.
+
+The difference between the highest and lowest bank failure rates is only **0.28 percentage points**.
+
+### Business Interpretation
+
+Two different operational perspectives are visible:
+
+- **Failure rate:** Yes Bank shows the highest relative failure exposure.
+- **Failure count:** SBI creates the largest operational impact because it handles the highest transaction volume.
+
+The narrow variation in failure rates suggests that sender bank alone is not a strong explanation for transaction failures. Additional dimensions such as transaction hour, network type, device type, transaction amount, and receiver bank should be examined together.
+
+These results show associations in the synthetic dataset and do not prove that any particular bank caused the failures.
+
+### Recommendation
+
+- Monitor Yes Bank and ICICI because their failure rates are above the platform average.
+- Prioritize SBI in operational monitoring because even a small improvement could prevent a large number of failures due to its high transaction volume.
+- Investigate bank performance together with time, network, device, and receiver-bank dimensions.
+- Use statistical testing later to determine whether the observed differences are meaningful rather than random variation.
