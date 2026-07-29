@@ -478,3 +478,56 @@ Because the dataset is synthetic, the observed fraud rate should not be interpre
 - Avoid performing data resampling before splitting the dataset, as this could cause data leakage.
 - Analyze fraud patterns by transaction type, amount, bank, state, device, network, merchant category, and time.
 - Develop risk thresholds that balance fraud detection with customer experience and review capacity.
+
+## 6.2.10 Fraud Flag Distribution
+
+### Business Question
+
+What proportion of transactions are labelled as fraudulent?
+
+### Objective
+
+To measure the distribution of normal and fraudulent transactions and determine the level of class imbalance in the fraud target.
+
+### Results
+
+| Fraud Flag | Category | Transaction Count | Transaction Share |
+| ---------: | -------- | ----------------: | ----------------: |
+|          0 | Normal   |           249,520 |           99.808% |
+|          1 | Fraud    |               480 |            0.192% |
+|  **Total** |          |       **250,000** |      **100.000%** |
+
+### Class-Imbalance Assessment
+
+| Metric                  |   Result |
+| ----------------------- | -------: |
+| Normal Transactions     |  249,520 |
+| Fraudulent Transactions |      480 |
+| Fraud Rate              |   0.192% |
+| Imbalance Ratio         | 519.83:1 |
+
+### Observation
+
+Of the 250,000 transactions, **249,520 transactions (99.808%)** are labelled as normal, while only **480 transactions (0.192%)** are labelled as fraudulent.
+
+There are approximately **520 normal transactions for every fraudulent transaction**, demonstrating an extreme class imbalance.
+
+### Business Interpretation
+
+Fraud represents a very small proportion of the dataset but may still create significant financial, operational, and reputational risk.
+
+The extreme imbalance creates an important machine-learning challenge. A model that predicts every transaction as normal would achieve approximately **99.808% accuracy** while detecting no fraudulent transactions. Therefore, overall accuracy would be a misleading primary evaluation metric.
+
+The low fraud frequency also means that false positives require careful control. Flagging too many legitimate transactions could increase manual-review workloads and negatively affect customer experience.
+
+Because the dataset is synthetic, the observed fraud rate should not be interpreted as an official or real-world UPI fraud rate.
+
+### Recommendation
+
+- Use imbalance-aware evaluation metrics such as precision, recall, F1-score, PR-AUC, and the confusion matrix.
+- Give special attention to fraud recall while monitoring the false-positive rate.
+- Use stratified train-test splitting to preserve fraud representation.
+- Evaluate class weighting and suitable resampling methods during model development.
+- Avoid performing data resampling before splitting the dataset, as this could cause data leakage.
+- Analyze fraud patterns by transaction type, amount, bank, state, device, network, merchant category, and time.
+- Develop risk thresholds that balance fraud detection with customer experience and review capacity.
