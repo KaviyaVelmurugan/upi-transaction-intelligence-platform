@@ -96,11 +96,11 @@ To measure transaction outcomes and establish the dataset's overall transaction 
 
 ### Results
 
-| Transaction Status | Transaction Count | Percentage |
-|---|---:|---:|
-| SUCCESS | 237,624 | 95.05% |
-| FAILED | 12,376 | 4.95% |
-| **Total** | **250,000** | **100.00%** |
+| Transaction Status | Transaction Count |  Percentage |
+| ------------------ | ----------------: | ----------: |
+| SUCCESS            |           237,624 |      95.05% |
+| FAILED             |            12,376 |       4.95% |
+| **Total**          |       **250,000** | **100.00%** |
 
 ### Observation
 
@@ -125,3 +125,67 @@ The business and operations teams should:
 - Establish alerts for unusual increases in the failure rate.
 - Prioritize high-volume segments where even a small failure-rate increase could affect many transactions.
 - Obtain operational error codes or failure-reason data in a production environment for confirmed root-cause investigation.
+
+## 6.2.4 Transaction Amount Distribution
+
+### Business Question
+
+How are UPI transaction amounts distributed, and are there unusually high-value transactions?
+
+### Objective
+
+To examine the central tendency, spread, skewness, and potential outliers in transaction amounts.
+
+### Results
+
+| Metric              |     Amount |
+| ------------------- | ---------: |
+| Total Transactions  |    250,000 |
+| Mean                |  ₹1,311.76 |
+| Median              |    ₹629.00 |
+| Mode                |    ₹215.00 |
+| Minimum             |     ₹10.00 |
+| First Quartile (Q1) |    ₹288.00 |
+| Third Quartile (Q3) |  ₹1,596.00 |
+| 90th Percentile     |  ₹3,236.00 |
+| 95th Percentile     |  ₹4,687.05 |
+| 99th Percentile     |  ₹9,003.01 |
+| Maximum             | ₹42,099.00 |
+| Standard Deviation  |  ₹1,848.06 |
+| Skewness            |       3.92 |
+
+### IQR Outlier Assessment
+
+| Metric                  |      Value |
+| ----------------------- | ---------: |
+| Interquartile Range     |  ₹1,308.00 |
+| Lower Bound             | -₹1,674.00 |
+| Upper Bound             |  ₹3,558.00 |
+| Potential Outliers      |     21,171 |
+| Potential Outlier Share |      8.47% |
+
+### Observation
+
+The mean transaction amount is **₹1,311.76**, while the median is substantially lower at **₹629.00**. The difference between the mean and median, together with a skewness value of **3.92**, indicates a strongly right-skewed distribution.
+
+Half of all transactions have amounts between **₹288 and ₹1,596**. Approximately 90% are below **₹3,236**, while the largest transaction is **₹42,099**.
+
+Using the IQR method, transactions above **₹3,558** are statistically flagged as potential outliers. This identifies **21,171 transactions**, representing **8.47%** of the dataset.
+
+The negative lower bound does not indicate negative transactions. The minimum observed amount is ₹10, so no lower-end IQR outliers exist.
+
+### Business Interpretation
+
+The distribution indicates that the platform is predominantly used for relatively small and routine payments. A smaller number of high-value transactions raises the overall average, making the median more representative of a typical transaction.
+
+The transactions flagged by the IQR method should not automatically be treated as errors or fraud. Legitimate use cases such as shopping, education, healthcare, travel, or bill payments may naturally involve larger amounts.
+
+However, high-value transactions may carry greater financial exposure and can be treated as a separate monitoring segment during fraud and risk analysis.
+
+### Recommendation
+
+- Use the median alongside the mean when reporting typical transaction value.
+- Create transaction-value bands for clearer analysis and dashboard reporting.
+- Analyze high-value transactions by merchant category, bank, transaction type, and fraud flag.
+- Do not delete IQR outliers without investigating their business context.
+- Apply enhanced monitoring to unusual combinations of amount, device, network, time, and transaction behavior.
