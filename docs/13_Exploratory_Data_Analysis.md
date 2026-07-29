@@ -714,3 +714,52 @@ These results show associations in the synthetic dataset and do not prove that a
 - Prioritize SBI in operational monitoring because even a small improvement could prevent a large number of failures due to its high transaction volume.
 - Investigate bank performance together with time, network, device, and receiver-bank dimensions.
 - Use statistical testing later to determine whether the observed differences are meaningful rather than random variation.
+
+## 6.3.4 Receiver Bank vs Transaction Status
+
+### Business Question
+
+How does transaction performance vary across receiver banks?
+
+### Objective
+
+To compare transaction volume, successful transactions, failed transactions, and failure rates across receiver banks and identify potential operational performance differences.
+
+### Findings
+
+| Receiver Bank | Total Transactions | Failed Transactions | Failure Rate |
+| ------------- | -----------------: | ------------------: | -----------: |
+| HDFC          |             37,651 |               1,945 |        5.17% |
+| Axis          |             24,992 |               1,280 |        5.12% |
+| ICICI         |             29,944 |               1,500 |        5.01% |
+| SBI           |             62,378 |               3,104 |        4.98% |
+| PNB           |             24,802 |               1,210 |        4.88% |
+| Yes Bank      |             25,009 |               1,217 |        4.87% |
+| Kotak         |             20,138 |                 951 |        4.72% |
+| IndusInd      |             25,086 |               1,169 |        4.66% |
+
+### Observation
+
+HDFC recorded the highest receiver-bank failure rate at **5.17%**, followed by Axis at **5.12%**. IndusInd recorded the lowest failure rate at **4.66%**.
+
+SBI produced the highest absolute number of failed transactions, with **3,104 failures**, because it processed the largest receiver-bank volume of 62,378 transactions.
+
+The difference between the highest and lowest receiver-bank failure rates is **0.51 percentage points**, which is greater than the 0.28-percentage-point variation observed among sender banks.
+
+### Business Interpretation
+
+Receiver-bank performance shows slightly more variation than sender-bank performance. HDFC and Axis are above the overall platform failure rate of **4.95%**, while Kotak and IndusInd are below it.
+
+An important finding is that HDFC recorded the lowest failure rate when acting as the sender bank but the highest rate when acting as the receiver bank. This indicates that performance should be evaluated according to transaction direction rather than assigning a single performance label to each bank.
+
+SBI represents the largest operational impact because its high transaction volume generates the greatest number of failures, even though its failure rate is close to the platform average.
+
+These findings represent associations in the synthetic dataset and do not establish that a receiver bank caused a transaction to fail.
+
+### Recommendation
+
+- Monitor HDFC and Axis receiver-bank transactions because their failure rates exceed the platform average.
+- Prioritize SBI for operational improvements because its high volume produces the largest number of failed transactions.
+- Analyze sender-bank and receiver-bank combinations to identify specific transaction routes with elevated failure rates.
+- Combine bank information with transaction hour, network type, device type, and transaction amount.
+- Validate observed differences statistically before treating them as meaningful performance gaps.
