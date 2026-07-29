@@ -341,6 +341,50 @@ The geographic patterns may reflect differences in population, urbanization, mer
 - Investigate whether transaction types and merchant categories vary across states.
 - Avoid interpreting the synthetic state distribution as official UPI market-share data.
 
+## 6.2.8 Device Type Distribution
+
+### Business Question
+
+Which device types are most commonly used for UPI transactions?
+
+### Objective
+
+To measure the distribution of transactions across device types and identify the primary channels used for UPI payments.
+
+### Results
+
+| Device Type | Transaction Count | Transaction Share |
+| ----------- | ----------------: | ----------------: |
+| Android     |           187,777 |            75.11% |
+| iOS         |            49,613 |            19.85% |
+| Web         |            12,610 |             5.04% |
+| **Total**   |       **250,000** |       **100.00%** |
+
+### Observation
+
+Android is the dominant device type with **187,777 transactions**, representing **75.11%** of the dataset. iOS accounts for **49,613 transactions (19.85%)**, while Web contributes **12,610 transactions (5.04%)**.
+
+Android and iOS collectively account for **94.96%** of all transactions. This demonstrates that transaction activity in the synthetic dataset is overwhelmingly mobile-based.
+
+### Business Interpretation
+
+The results reflect the mobile-first nature of UPI payments. Android alone represents approximately three out of every four transactions, making it the most operationally significant device channel in the dataset.
+
+Although iOS has a smaller share, it still represents almost one-fifth of the transactions and remains an important platform. Web usage is comparatively limited and may represent browser-enabled or desktop payment journeys.
+
+Because Android handles the largest transaction volume, performance degradation or technical issues affecting this channel could potentially influence a larger number of transactions.
+
+Transaction count alone does not demonstrate whether Android, iOS, or Web provides better reliability. Device-level success, failure, and fraud rates must be compared before evaluating channel performance.
+
+### Recommendation
+
+- Prioritize Android application reliability, security, performance testing, and user-experience improvements.
+- Maintain consistent payment functionality across Android and iOS.
+- Compare transaction success, failure, and fraud rates across device types.
+- Investigate whether Web transactions differ in amount, transaction type, merchant category, or fraud exposure.
+- Include device-level transaction and risk metrics in operational and fraud-monitoring dashboards.
+- Avoid interpreting transaction volume alone as a measure of device reliability.
+
 ## 6.2.9 Network Type Distribution
 
 ### Business Question
