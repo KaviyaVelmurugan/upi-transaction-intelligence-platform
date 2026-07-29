@@ -289,3 +289,54 @@ These values describe the synthetic dataset and should not be interpreted as act
 - Compare sender-to-receiver bank combinations during bivariate analysis.
 - Investigate whether particular bank pairs exhibit unusual failure or fraud patterns.
 - Avoid interpreting transaction count alone as an indicator of bank performance or service quality.
+
+## 6.2.7 Sender State Distribution
+
+### Business Question
+
+Which states generate the highest number and value of UPI transactions?
+
+### Objective
+
+To compare sender states based on transaction count, transaction share, total transaction value, and average transaction value.
+
+### Results
+
+| Sender State   | Transaction Count | Transaction Share | Total Transaction Value | Average Transaction Value |
+| -------------- | ----------------: | ----------------: | ----------------------: | ------------------------: |
+| Maharashtra    |            37,427 |            14.97% |             ₹49,043,948 |                 ₹1,310.39 |
+| Uttar Pradesh  |            30,125 |            12.05% |             ₹40,035,717 |                 ₹1,328.99 |
+| Karnataka      |            29,756 |            11.90% |             ₹38,451,158 |                 ₹1,292.22 |
+| Tamil Nadu     |            25,367 |            10.15% |             ₹33,343,518 |                 ₹1,314.44 |
+| Delhi          |            24,870 |             9.95% |             ₹32,689,865 |                 ₹1,314.43 |
+| Telangana      |            22,435 |             8.97% |             ₹29,750,930 |                 ₹1,326.09 |
+| Gujarat        |            20,061 |             8.02% |             ₹25,988,190 |                 ₹1,295.46 |
+| Andhra Pradesh |            20,006 |             8.00% |             ₹25,952,619 |                 ₹1,297.24 |
+| Rajasthan      |            19,981 |             7.99% |             ₹26,730,470 |                 ₹1,337.79 |
+| West Bengal    |            19,972 |             7.99% |             ₹25,952,594 |                 ₹1,299.45 |
+
+### Observation
+
+Maharashtra generates the highest transaction volume with **37,427 transactions**, representing **14.97%** of the dataset. Uttar Pradesh follows with **30,125 transactions (12.05%)**, while Karnataka contributes **29,756 transactions (11.90%)**.
+
+The three leading states collectively account for **38.92%** of all transactions.
+
+Maharashtra also generates the highest total transaction value at approximately **₹49.04 million**. Average transaction values are comparatively similar across states, ranging from **₹1,292.22 to ₹1,337.79**.
+
+Rajasthan records the highest average transaction value at **₹1,337.79**, despite having one of the lowest transaction counts.
+
+### Business Interpretation
+
+The geographic distribution is relatively diversified, although Maharashtra, Uttar Pradesh, and Karnataka form the largest transaction markets in this synthetic dataset.
+
+Maharashtra's leading total transaction value is primarily driven by its higher transaction count. Rajasthan's higher average value suggests that transaction frequency and typical transaction size should be evaluated separately.
+
+The geographic patterns may reflect differences in population, urbanization, merchant availability, and digital-payment adoption. However, the dataset does not contain population or economic-normalization measures, so the results should not be interpreted as per-capita UPI adoption.
+
+### Recommendation
+
+- Prioritize operational capacity and merchant engagement in high-volume states.
+- Compare state-level success, failure, and fraud rates rather than relying only on total volume.
+- Normalize future geographic analysis using population or active-user data when available.
+- Investigate whether transaction types and merchant categories vary across states.
+- Avoid interpreting the synthetic state distribution as official UPI market-share data.
