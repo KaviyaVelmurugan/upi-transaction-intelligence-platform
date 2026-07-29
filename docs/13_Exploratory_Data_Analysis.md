@@ -614,3 +614,54 @@ Additional analysis across banks, devices, networks, transaction amounts, and ti
 - Avoid concluding that Recharge has a serious performance problem based on the small percentage-point difference alone.
 - Combine transaction type with bank, network, device, amount, and time dimensions in deeper analysis.
 - Apply statistical testing later to determine whether observed failure-rate differences are meaningful or likely caused by sampling variation.
+
+## 6.3.2 Merchant Category vs Transaction Status
+
+### Business Question
+
+Which merchant categories have the highest number and rate of failed transactions?
+
+### Objective
+
+To compare transaction outcomes across merchant categories and identify categories with elevated failure rates or operational impact.
+
+### Results
+
+| Merchant Category | Total Transactions | Successful | Failed | Success Rate | Failure Rate |
+| ----------------- | -----------------: | ---------: | -----: | -----------: | -----------: |
+| Education         |              7,598 |      7,199 |    399 |       94.75% |        5.25% |
+| Shopping          |             29,872 |     28,353 |  1,519 |       94.91% |        5.09% |
+| Grocery           |             49,966 |     47,463 |  2,503 |       94.99% |        5.01% |
+| Food              |             37,464 |     35,588 |  1,876 |       94.99% |        5.01% |
+| Other             |             24,828 |     23,598 |  1,230 |       95.05% |        4.95% |
+| Entertainment     |             20,103 |     19,113 |    990 |       95.08% |        4.92% |
+| Utilities         |             22,338 |     21,252 |  1,086 |       95.14% |        4.86% |
+| Healthcare        |             12,663 |     12,051 |    612 |       95.17% |        4.83% |
+| Fuel              |             25,063 |     23,859 |  1,204 |       95.20% |        4.80% |
+| Transport         |             20,105 |     19,148 |    957 |       95.24% |        4.76% |
+
+**Overall failure rate: 4.95%**
+
+### Observation
+
+Education records the highest failure rate at **5.25%**, followed by Shopping at **5.09%**. Grocery and Food both record a failure rate of **5.01%**.
+
+Grocery produces the largest absolute number of failed transactions with **2,503 failures**, followed by Food with **1,876** and Shopping with **1,519**.
+
+Transport records the lowest failure rate at **4.76%**. The difference between the highest and lowest category-level failure rates is **0.49 percentage points**.
+
+### Business Interpretation
+
+Education has the highest relative failure rate, but it is also the smallest merchant category by transaction volume. Its result should therefore be interpreted cautiously and validated statistically before treating it as an operational concern.
+
+Grocery has a failure rate close to the overall baseline, but its high transaction volume causes it to generate the largest number of failures. Improvements in this category could therefore affect more transactions in absolute terms.
+
+The relatively narrow failure-rate range suggests that merchant category alone does not strongly separate successful and failed transactions in this synthetic dataset.
+
+### Recommendation
+
+- Prioritize Grocery for operational-impact analysis because it produces the greatest number of failed transactions.
+- Monitor Education and Shopping because their failure rates exceed the overall baseline.
+- Avoid concluding that Education has a systemic problem based only on its observed percentage.
+- Compare merchant categories across transaction amount, bank, device, network, and time.
+- Apply a statistical test later to determine whether category-level differences are meaningful.
