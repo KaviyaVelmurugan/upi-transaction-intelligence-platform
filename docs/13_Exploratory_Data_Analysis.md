@@ -45,3 +45,19 @@ The following sections will perform detailed exploratory analysis, including:
 - Fraud Analysis
 - Statistical Analysis
 - Business Insights
+
+### Observation
+
+The dataset contains four major transaction types. Person-to-Person (P2P) transactions account for the largest share with **112,445 transactions (44.98%)**, followed by Person-to-Merchant (P2M) transactions with **87,660 transactions (35.06%)**. Bill Payments contribute **14.95%**, while Recharge transactions represent only **5.01%** of the total transactions.
+
+---
+
+### Business Interpretation
+
+The high volume of P2P transactions indicates that users primarily utilize UPI for transferring money between individuals, such as payments to friends and family. P2M transactions also form a significant portion, demonstrating strong merchant adoption of digital payments. Bill payments and mobile recharges are comparatively less frequent, suggesting that users may rely on specialized applications or automated payment methods for these services.
+
+---
+
+### Recommendation
+
+Financial institutions and UPI service providers should continue enhancing the user experience for P2P and P2M transactions, as these represent nearly 80% of all transactions. Promotional campaigns and cashback offers could be introduced for bill payments and recharge services to encourage greater adoption and increase transaction diversity.
