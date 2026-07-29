@@ -565,3 +565,52 @@ The project will proceed to bivariate analysis to investigate relationships incl
 - Merchant category versus transaction amount
 - Transaction amount versus fraud
 - Bank, state, device, and network versus fraud rate
+
+## 6.3 Failure-Focused Bivariate Analysis
+
+## 6.3.1 Transaction Type vs Transaction Status
+
+### Business Question
+
+Which transaction types have the highest number and rate of failed transactions?
+
+### Objective
+
+To compare transaction outcomes across transaction types and identify segments with elevated failure rates.
+
+### Results
+
+| Transaction Type | Total Transactions | Successful | Failed | Success Rate | Failure Rate |
+| ---------------- | -----------------: | ---------: | -----: | -----------: | -----------: |
+| Recharge         |             12,527 |     11,889 |    638 |       94.91% |        5.09% |
+| P2P              |            112,445 |    106,870 |  5,575 |       95.04% |        4.96% |
+| P2M              |             87,660 |     83,321 |  4,339 |       95.05% |        4.95% |
+| Bill Payment     |             37,368 |     35,544 |  1,824 |       95.12% |        4.88% |
+
+**Overall failure rate: 4.95%**
+
+### Observation
+
+Recharge records the highest failure rate at **5.09%**, followed by P2P at **4.96%**, P2M at **4.95%**, and Bill Payment at **4.88%**.
+
+However, P2P produces the highest absolute number of failed transactions with **5,575 failures** because it also has the largest transaction volume. P2M follows with **4,339 failed transactions**.
+
+The difference between the highest and lowest transaction-type failure rates is only **0.21 percentage points**.
+
+### Business Interpretation
+
+The analysis demonstrates why both failure count and failure rate must be examined.
+
+Recharge has the highest relative failure rate, but its smaller transaction volume limits its total operational impact. P2P has a slightly lower failure rate but contributes the largest number of failed transactions because it represents the largest transaction segment.
+
+The failure rates are closely grouped around the overall 4.95% baseline. Therefore, transaction type alone does not appear to create a strong separation in transaction outcomes within this synthetic dataset.
+
+Additional analysis across banks, devices, networks, transaction amounts, and time periods is required before identifying meaningful contributing patterns.
+
+### Recommendation
+
+- Prioritize P2P for operational monitoring because it produces the highest absolute number of failed transactions.
+- Monitor Recharge because its failure rate is slightly above the overall baseline.
+- Avoid concluding that Recharge has a serious performance problem based on the small percentage-point difference alone.
+- Combine transaction type with bank, network, device, amount, and time dimensions in deeper analysis.
+- Apply statistical testing later to determine whether observed failure-rate differences are meaningful or likely caused by sampling variation.
