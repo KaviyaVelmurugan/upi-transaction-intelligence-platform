@@ -1,12 +1,12 @@
 # 13. Exploratory Data Analysis (EDA)
 
-## 1. Objective
+## 6.1. Objective
 
 The objective of Exploratory Data Analysis (EDA) is to understand the characteristics of the UPI transaction dataset by identifying patterns, trends, relationships, and anomalies. The insights obtained from this phase will support business decision-making, SQL analytics, Power BI dashboard development, and fraud detection modeling.
 
 ---
 
-# 2. Dataset Overview
+# 6.2.1 Dataset Overview
 
 ## Dataset Summary
 
