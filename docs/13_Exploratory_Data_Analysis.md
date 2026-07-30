@@ -860,3 +860,45 @@ Device type alone appears to provide limited separation between successful and f
 - Do not interpret Android’s high failure count as evidence of weaker reliability.
 - Analyze device and network combinations to identify more specific performance patterns.
 - Apply statistical testing later to determine whether the Web–mobile difference is meaningful.
+
+## 6.3.7 Network Type vs Transaction Status
+
+### Business Question
+
+Does transaction performance vary across network types?
+
+### Objective
+
+To compare transaction volume, failure counts, and failure rates across 3G, 4G, 5G, and WiFi transactions.
+
+### Findings
+
+| Network Type | Total Transactions | Failed Transactions | Failure Rate |
+| ------------ | -----------------: | ------------------: | -----------: |
+| 3G           |             12,471 |                 651 |        5.22% |
+| 4G           |            149,813 |               7,464 |        4.98% |
+| 5G           |             62,582 |               3,039 |        4.86% |
+| WiFi         |             25,134 |               1,222 |        4.86% |
+
+### Observation
+
+3G recorded the highest failure rate at **5.22%**, followed by 4G at **4.98%**. Both 5G and WiFi recorded the lowest failure rate at **4.86%**.
+
+4G generated the highest absolute number of failures, with **7,464 failed transactions**, because it processed approximately 60% of all transactions.
+
+The difference between the highest and lowest network failure rates was **0.36 percentage points**.
+
+### Business Interpretation
+
+3G shows slightly higher relative failure exposure, while 4G represents the greatest operational impact because of its dominant transaction volume.
+
+The lower failure rates observed for 5G and WiFi may indicate a performance association, but the differences are relatively small. Network type alone does not sufficiently explain transaction failures.
+
+These results do not establish that network type caused a transaction to fail.
+
+### Recommendation
+
+- Monitor 3G transactions because their failure rate is above the platform average.
+- Prioritize 4G operational monitoring because it generates the largest number of failures.
+- Examine network type together with device, state, bank, and transaction hour.
+- Validate the differences statistically before treating them as meaningful performance gaps.
