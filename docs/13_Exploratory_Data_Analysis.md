@@ -1344,3 +1344,88 @@ Operations teams should investigate the flagged segment combinations in greater 
 - Avoid taking corrective action based solely on small categories, particularly the Web result based on 37 transactions.
 
 These findings should guide operational investigation but should not be interpreted as proof of causation.
+
+## 6.5.3 Operational Risk Prioritization
+
+### Business Question
+
+Which operational segments identified during the failure spikes require immediate investigation, and which should be monitored?
+
+### Objective
+
+To prioritize affected segments using two transparent indicators:
+
+- A failure-rate increase of at least 3 percentage points above the normal baseline.
+- At least 10 failed transactions on the flagged date.
+
+### Observation
+
+#### 30 June 2024
+
+The prioritization identified:
+
+- 5 High Priority segments
+- 11 Emerging Rate Risk segments
+- 4 Volume-Driven Risk segments
+- 26 Monitor segments
+
+The five High Priority segments were:
+
+| Dimension         | Category     | Transactions | Failures | Rate increase |
+| ----------------- | ------------ | -----------: | -------: | ------------: |
+| Merchant category | Food         |          115 |       13 |       6.33 pp |
+| Sender bank       | SBI          |          172 |       18 |       5.55 pp |
+| Device type       | iOS          |          155 |       15 |       4.77 pp |
+| Transaction type  | Bill Payment |          123 |       11 |       4.08 pp |
+| Network type      | 4G           |          422 |       38 |       4.04 pp |
+
+P2P, SBI as receiver bank, Android, and P2M were classified as Volume-Driven Risks because they generated many failures despite smaller rate increases.
+
+#### 4 September 2024
+
+The prioritization identified:
+
+- 10 High Priority segments
+- 10 Emerging Rate Risk segments
+- 3 Volume-Driven Risk segments
+- 22 Monitor segments
+
+The ten High Priority segments included:
+
+| Dimension         | Category   | Transactions | Failures | Rate increase |
+| ----------------- | ---------- | -----------: | -------: | ------------: |
+| Sender bank       | PNB        |           60 |       10 |      11.82 pp |
+| Sender state      | Tamil Nadu |           76 |       10 |       8.08 pp |
+| Receiver bank     | HDFC       |          100 |       12 |       6.86 pp |
+| Merchant category | Food       |          103 |       11 |       5.71 pp |
+| Sender bank       | HDFC       |          115 |       10 |       3.88 pp |
+| Transaction type  | P2M        |          229 |       20 |       3.80 pp |
+| Network type      | 5G         |          175 |       15 |       3.72 pp |
+| Device type       | iOS        |          143 |       12 |       3.48 pp |
+| Transaction type  | P2P        |          338 |       28 |       3.34 pp |
+| Sender bank       | SBI        |          188 |       15 |       3.07 pp |
+
+Android, 4G, and SBI as receiver bank were classified as Volume-Driven Risks.
+
+### Business Interpretation
+
+The 4 September spike was operationally broader than the 30 June spike because twice as many segments met the High Priority criteria.
+
+On 30 June, elevated failures were concentrated around Food transactions, SBI senders, iOS devices, Bill Payments, and 4G connections. On 4 September, deterioration appeared across multiple banks, transaction types, customer geography, network types, and devices.
+
+Emerging Rate Risks experienced sharp rate increases but produced fewer than ten failures. These segments require monitoring because their current impact is limited, although their rates may indicate a developing issue.
+
+Volume-Driven Risks produced many failed transactions mainly because they processed high transaction volumes. These segments require capacity and reliability monitoring even when their failure-rate increases are comparatively smaller.
+
+Segment counts represent category records across different dimensions—not unique failed transactions. The same failed transaction can appear under a bank, device, network, state, and transaction type; therefore, these counts must not be added together.
+
+### Recommendation
+
+- Prioritize investigation of the five High Priority segments detected on 30 June.
+- Conduct a broader operational review for 4 September, particularly around PNB, HDFC, SBI, Tamil Nadu, P2M, P2P, 5G, and iOS activity.
+- Monitor Emerging Rate Risks to determine whether their elevated rates persist.
+- Apply capacity monitoring to Android, 4G, P2P, and other Volume-Driven Risk categories.
+- Make the 3-percentage-point and 10-failure thresholds configurable in a production monitoring system.
+- Validate all candidates using technical logs and payment-routing information before assigning a confirmed root cause.
+
+The priority categories are portfolio-defined operational rules and should not be presented as universal industry thresholds.
