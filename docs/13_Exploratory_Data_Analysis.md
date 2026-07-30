@@ -1006,3 +1006,45 @@ Therefore, subsequent analysis must continue considering both:
 - **Failure count**, which measures operational impact.
 
 No individual variable sufficiently explains transaction failures on its own. Time-based and multi-dimensional analysis are required next.
+
+# 6.4 Time-Based Analysis
+
+## 6.4.1 Monthly Transaction Trend
+
+### Business Question
+
+How do transaction volume and value change throughout 2024?
+
+### Objective
+
+To examine monthly transaction patterns and determine whether transaction activity changes significantly over time.
+
+### Observation
+
+May recorded the highest raw transaction volume with **21,333 transactions**, while February recorded the lowest with 19,759 transactions.
+
+However, monthly totals are affected by the number of active days. After normalization:
+
+- May recorded the highest average daily volume at **688.16 transactions**.
+- November recorded the lowest average daily volume at **678.87 transactions**.
+- The difference between the highest and lowest daily averages was only **9.29 transactions per day**.
+
+Average daily transaction value ranged from approximately **₹885,700 in January** to **₹910,370 in December**.
+
+The average value per transaction was also relatively stable, ranging from ₹1,293.85 in January to ₹1,324.09 in July.
+
+### Business Interpretation
+
+Transaction activity remained highly consistent throughout 2024. No strong upward, downward, or seasonal volume trend is visible in the synthetic dataset.
+
+February’s lower monthly total was primarily associated with its smaller number of calendar days rather than materially weaker daily activity.
+
+December contains only 30 active days because the dataset ends on December 30. This limitation must be considered when comparing its raw total with complete months.
+
+### Recommendation
+
+- Use raw monthly totals for operational workload and reporting.
+- Use average daily activity when comparing performance between months.
+- Maintain relatively stable transaction-processing capacity throughout the year.
+- Avoid claiming seasonal growth or decline from the small differences observed.
+- Examine monthly failure rates next to determine whether transaction performance changes even when volume remains stable.
