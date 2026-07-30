@@ -902,3 +902,50 @@ These results do not establish that network type caused a transaction to fail.
 - Prioritize 4G operational monitoring because it generates the largest number of failures.
 - Examine network type together with device, state, bank, and transaction hour.
 - Validate the differences statistically before treating them as meaningful performance gaps.
+
+## 6.3.8 Amount Band vs Transaction Status
+
+### Business Question
+
+Does transaction performance vary across transaction amount ranges?
+
+### Objective
+
+To compare transaction volume, failure counts, and failure rates across different transaction amount bands.
+
+### Findings
+
+| Amount Band    | Total Transactions | Failed Transactions | Failure Rate |
+| -------------- | -----------------: | ------------------: | -----------: |
+| Above ₹10,000  |              1,805 |                 104 |        5.76% |
+| ₹5,001–₹10,000 |              9,151 |                 481 |        5.26% |
+| ₹1,001–₹2,500  |             55,436 |               2,801 |        5.05% |
+| ₹2,501–₹5,000  |             25,947 |               1,301 |        5.01% |
+| ₹501–₹1,000    |             51,037 |               2,500 |        4.90% |
+| ₹0–₹500        |            106,624 |               5,189 |        4.87% |
+
+### Observation
+
+Transactions above ₹10,000 recorded the highest failure rate at **5.76%**, followed by the ₹5,001–₹10,000 band at **5.26%**.
+
+The ₹0–₹500 band recorded the lowest failure rate at **4.87%**, but generated the highest failure count of **5,189** because it contained 106,624 transactions.
+
+The difference between the highest and lowest amount-band failure rates was **0.89 percentage points**.
+
+### Business Interpretation
+
+Higher-value transaction bands show greater relative failure exposure in this dataset. Transaction amount therefore appears more useful for distinguishing failure patterns than several previously examined dimensions.
+
+However, transactions above ₹10,000 contain only 1,805 records. Their higher failure rate should therefore be interpreted cautiously and validated using additional data.
+
+Low-value transactions create the greatest operational workload because of their much larger transaction volume.
+
+The results show an association between amount range and transaction status but do not prove that higher amounts caused the failures.
+
+### Recommendation
+
+- Monitor high-value transactions because their failure rates exceed the platform average.
+- Include amount band as a dashboard filter and potential failure-prediction feature.
+- Prioritize low-value transactions for operational improvements because they generate the highest failure count.
+- Combine amount with bank, network, device, and transaction time to identify more specific patterns.
+- Do not reject or block high-value transactions based solely on this analysis.
