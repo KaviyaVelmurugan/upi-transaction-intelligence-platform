@@ -1048,3 +1048,39 @@ December contains only 30 active days because the dataset ends on December 30. T
 - Maintain relatively stable transaction-processing capacity throughout the year.
 - Avoid claiming seasonal growth or decline from the small differences observed.
 - Examine monthly failure rates next to determine whether transaction performance changes even when volume remains stable.
+
+## 6.4.2 Monthly Failure Trend
+
+### Business Question
+
+How do transaction failure counts and failure rates change across months?
+
+### Objective
+
+To identify months with elevated transaction failure performance while accounting for differences in the number of active days.
+
+### Observation
+
+March recorded the highest monthly failure rate at **5.38%**, followed by September at **5.15%**. March also generated the highest average daily failure count at **36.84 failures per day**.
+
+October recorded the lowest failure rate at **4.74%**, followed by January at **4.77%**.
+
+The difference between the highest and lowest monthly failure rates was **0.64 percentage points**.
+
+Monthly transaction volumes remained relatively stable, but failure rates showed more noticeable variation. No continuous upward or downward failure trend was observed.
+
+### Business Interpretation
+
+March represents the clearest monthly performance concern because its failure rate and average daily failure count were both elevated.
+
+September also recorded an above-average failure rate. These increases were not explained solely by higher transaction volume because normalized monthly activity remained stable.
+
+However, the dataset does not provide detailed failure reasons. Therefore, the analysis identifies time periods associated with elevated failures but cannot establish their operational cause.
+
+### Recommendation
+
+- Prioritize March and September for more detailed segment analysis.
+- Compare these months by bank, network, device, transaction type, and hour.
+- Use the overall failure rate of 4.95% as a dashboard reference line.
+- Monitor both failure rate and average daily failure count.
+- Avoid interpreting isolated monthly differences as a permanent trend without additional historical data.
