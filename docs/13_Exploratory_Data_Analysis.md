@@ -1120,3 +1120,43 @@ A separate weekend-versus-weekday comparison is required to confirm whether the 
 - Compare weekend and weekday performance as grouped periods.
 - Examine weekend failures by hour, network, bank, and device.
 - Avoid making operational decisions based solely on the small weekday differences.
+
+## 6.4.4 Hour-of-Day Analysis
+
+### Business Question
+
+At which hours do transaction activity and failure rates peak?
+
+### Objective
+
+To identify high-traffic hours and determine whether particular hours experience elevated transaction failure rates.
+
+### Observation
+
+Transaction activity was lowest during the early morning and increased substantially from approximately 8 AM.
+
+The highest transaction volume occurred at **7 PM**, with 21,232 transactions and an average of 58.17 transactions per day. Activity was also high between 5 PM and 8 PM.
+
+The highest failure rate occurred at **6 AM (5.40%)**, followed by midnight at 5.37% and 1 AM at 5.35%. These hours contained relatively low transaction volumes.
+
+At 7 PM, the failure rate was **5.15%**, and the hour generated the highest failure count of 1,093 transactions.
+
+The difference between the highest and lowest hourly failure rates was **0.86 percentage points**.
+
+### Business Interpretation
+
+The early-morning hours recorded the highest relative failure rates but produced a limited number of failures because transaction activity was low.
+
+The 7 PM period represents the most important operational priority because it combines the highest transaction volume, the highest failure count, and an above-average failure rate.
+
+This demonstrates why both failure count and failure rate must be considered. A low-volume period may have a high rate, while a peak period may create greater overall customer impact.
+
+The analysis identifies time associations but does not establish why failures occurred during those hours.
+
+### Recommendation
+
+- Prioritize monitoring and system capacity between 5 PM and 8 PM.
+- Investigate 7 PM transactions by bank, network, device, state, and amount band.
+- Monitor early-morning failure rates, but interpret them cautiously because of their lower volumes.
+- Use hourly failure-rate thresholds and failure-count alerts in the dashboard.
+- Compare day-and-hour combinations using a heatmap.
