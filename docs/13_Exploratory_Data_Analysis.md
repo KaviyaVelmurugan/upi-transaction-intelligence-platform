@@ -1259,3 +1259,32 @@ March recorded the highest monthly failure rate, while Sunday and weekend transa
 Transaction activity peaked during the evening, particularly at 7 PM. Friday at 7 PM emerged as an important operational window because it combined high volume and an above-average failure rate.
 
 These findings provide the time-based foundation for failure spike detection and multi-dimensional anomaly analysis.
+
+## 6.5.1 Daily Failure Spike Detection
+
+### Business Question
+
+Were there any dates during 2024 when the UPI transaction failure rate increased to a statistically unusual level?
+
+### Objective
+
+To monitor daily transaction failure rates using statistical control limits and identify dates requiring operational investigation.
+
+### Observation
+
+Two daily transaction-failure spikes were detected using statistical control limits.
+
+- On 4 September 2024, 56 of 719 transactions failed, producing a 7.79% failure rate.
+- On 30 June 2024, 56 of 755 transactions failed, producing a 7.42% failure rate.
+
+Both failure rates exceeded their respective upper control limits.
+
+### Business Interpretation
+
+Although the platform’s overall failure rate is approximately 4.95%, these two dates experienced statistically unusual failure levels. They should be investigated to determine whether particular banks, networks, devices, transaction types, or merchant categories contributed disproportionately.
+
+The detected spikes represent anomaly signals and do not independently establish their underlying causes.
+
+### Recommendation
+
+Operations teams should configure alerts for dates exceeding the statistical upper control limit. Flagged dates should then undergo dimensional root-cause analysis before corrective operational action is taken.
