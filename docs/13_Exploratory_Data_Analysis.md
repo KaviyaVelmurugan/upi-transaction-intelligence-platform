@@ -949,3 +949,60 @@ The results show an association between amount range and transaction status but 
 - Prioritize low-value transactions for operational improvements because they generate the highest failure count.
 - Combine amount with bank, network, device, and transaction time to identify more specific patterns.
 - Do not reject or block high-value transactions based solely on this analysis.
+
+## 6.3.9 Transaction Amount vs Transaction Status
+
+### Business Question
+
+Do successful and failed transactions have different amount distributions?
+
+### Objective
+
+To compare the central tendency and variability of transaction amounts for successful and failed transactions.
+
+### Findings
+
+| Metric             |    Failed | Successful |
+| ------------------ | --------: | ---------: |
+| Transaction Count  |    12,376 |    237,624 |
+| Mean Amount        | ₹1,354.01 |  ₹1,309.56 |
+| Median Amount      |   ₹636.00 |    ₹628.00 |
+| Standard Deviation | ₹1,974.50 |  ₹1,841.21 |
+| First Quartile     |   ₹287.00 |    ₹288.00 |
+| Third Quartile     | ₹1,636.25 |  ₹1,594.00 |
+| Maximum Amount     |   ₹42,099 |    ₹41,210 |
+
+### Observation
+
+Failed transactions recorded a mean amount of **₹1,354.01**, compared with **₹1,309.56** for successful transactions. This represents a difference of ₹44.45, or approximately 3.39%.
+
+The median amounts were very similar: ₹636 for failed transactions and ₹628 for successful transactions.
+
+Failed transactions also recorded a slightly higher standard deviation and third quartile, indicating somewhat greater variation in their upper-value transactions.
+
+### Business Interpretation
+
+The successful and failed amount distributions are broadly similar. Failed transactions have slightly higher amounts, particularly in the upper portion of the distribution, but the difference is not large enough to treat transaction amount as a standalone explanation for failure.
+
+This supports the amount-band analysis, where high-value bands showed increased failure rates. However, transaction amount should be combined with other variables such as bank, network, device, state, and transaction time.
+
+### Recommendation
+
+- Retain transaction amount as a potential failure-prediction feature.
+- Consider both the original amount and engineered amount bands.
+- Apply a logarithmic transformation during modeling because the amount distribution is strongly right-skewed.
+- Do not flag transactions solely because they have high amounts.
+- Combine amount with operational and time-related variables.
+
+## 6.3 Bivariate Analysis Summary
+
+The bivariate analysis showed that most individual categories have only modest differences in failure rates. Transaction amount bands provided one of the clearest patterns, with higher-value transactions recording greater relative failure exposure.
+
+High-volume segments—including SBI, Maharashtra, Android, 4G, P2P, Grocery, and low-value transactions—generated the largest failure counts primarily because they processed more transactions.
+
+Therefore, subsequent analysis must continue considering both:
+
+- **Failure rate**, which measures relative performance.
+- **Failure count**, which measures operational impact.
+
+No individual variable sufficiently explains transaction failures on its own. Time-based and multi-dimensional analysis are required next.
