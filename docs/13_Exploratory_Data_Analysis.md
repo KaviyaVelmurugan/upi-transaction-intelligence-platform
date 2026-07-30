@@ -1288,3 +1288,59 @@ The detected spikes represent anomaly signals and do not independently establish
 ### Recommendation
 
 Operations teams should configure alerts for dates exceeding the statistical upper control limit. Flagged dates should then undergo dimensional root-cause analysis before corrective operational action is taken.
+
+## 6.5.2 Root-Cause Analysis of Flagged Dates
+
+### Business Question
+
+Which operational dimensions contributed disproportionately to the failure spikes detected on 30 June and 4 September 2024?
+
+### Objective
+
+To compare transaction categories on the flagged dates against their normal failure performance and identify segments requiring further operational investigation.
+
+### Observation
+
+#### 30 June 2024
+
+Several categories performed worse than their normal baselines:
+
+- Gujarat recorded a 12.07% failure rate, representing a 7.33-percentage-point increase over its baseline.
+- Food transactions recorded an 11.30% failure rate, 6.33 percentage points above normal.
+- SBI sender-bank transactions produced 18 failures and a 10.47% failure rate.
+- iOS transactions recorded a 9.68% failure rate compared with a 4.91% baseline.
+- The 4G network contributed 38 of the day’s 56 failures, representing 67.86% of failures.
+- Bill Payments recorded an 8.94% failure rate compared with a 4.87% baseline.
+
+#### 4 September 2024
+
+The strongest deterioration was observed in the following segments:
+
+- PNB sender-bank transactions recorded a 16.67% failure rate, 11.82 percentage points above normal.
+- Web transactions recorded a 13.51% failure rate, although this result was based on only 37 transactions.
+- Tamil Nadu recorded a 13.16% failure rate, 8.08 percentage points above its baseline.
+- Yes Bank receiver transactions recorded an 11.84% failure rate.
+- The Other merchant category recorded an 11.59% failure rate.
+- P2M transactions contributed 20 of the day’s 56 failures, representing 35.71% of failures.
+
+### Business Interpretation
+
+The two failure spikes appear to have different operational profiles.
+
+The 30 June spike was broadly associated with Food transactions, SBI as the sender bank, iOS devices, Gujarat, and 4G usage. Although 4G contributed the greatest number of failures, this was partly influenced by its high transaction volume.
+
+The 4 September spike showed stronger deterioration among PNB sender transactions, Tamil Nadu users, Yes Bank receivers, Web devices, and P2M payments. PNB recorded the largest failure-rate increase, while P2M contributed the greatest number of failed transactions among transaction types.
+
+These categories should be treated as investigation candidates rather than confirmed root causes. The same failed transaction appears across multiple dimensions, so failure-share percentages must not be added together.
+
+### Recommendation
+
+Operations teams should investigate the flagged segment combinations in greater detail.
+
+- Examine PNB–Tamil Nadu–P2M activity on 4 September.
+- Examine SBI–Gujarat–Food activity on 30 June.
+- Review network and device logs associated with 4G, iOS, WiFi, and Web transactions.
+- Compare affected bank and network performance with nearby non-spike dates.
+- Avoid taking corrective action based solely on small categories, particularly the Web result based on 37 transactions.
+
+These findings should guide operational investigation but should not be interpreted as proof of causation.
