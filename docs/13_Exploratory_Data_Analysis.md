@@ -1084,3 +1084,39 @@ However, the dataset does not provide detailed failure reasons. Therefore, the a
 - Use the overall failure rate of 4.95% as a dashboard reference line.
 - Monitor both failure rate and average daily failure count.
 - Avoid interpreting isolated monthly differences as a permanent trend without additional historical data.
+
+## 6.4.3 Day-of-Week Analysis
+
+### Business Question
+
+Does transaction activity and failure performance vary across days of the week?
+
+### Objective
+
+To compare normalized daily transaction volume, average daily failures, and failure rates across weekdays.
+
+### Observation
+
+Sunday recorded the highest average daily transaction volume at **692.37 transactions**, followed by Monday at 688.58. Saturday recorded the lowest average daily volume at 679.50.
+
+Sunday also recorded the highest failure rate at **5.10%** and the highest average daily failure count at 35.29. Saturday followed with a failure rate of **5.09%**.
+
+Friday recorded the lowest failure rate at **4.77%**, followed by Tuesday at 4.79%.
+
+The difference between the highest and lowest weekday failure rates was **0.33 percentage points**.
+
+### Business Interpretation
+
+Transaction activity is distributed relatively evenly throughout the week. The difference between the highest and lowest normalized daily volume is small.
+
+Weekend days show slightly higher failure rates than most weekdays. However, the variation is modest and does not establish that weekend timing caused transaction failures.
+
+A separate weekend-versus-weekday comparison is required to confirm whether the combined weekend pattern remains visible.
+
+### Recommendation
+
+- Maintain consistent transaction-processing capacity throughout the week.
+- Monitor Sunday because it combines the highest daily volume and highest failure rate.
+- Compare weekend and weekday performance as grouped periods.
+- Examine weekend failures by hour, network, bank, and device.
+- Avoid making operational decisions based solely on the small weekday differences.
