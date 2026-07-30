@@ -1429,3 +1429,40 @@ Segment counts represent category records across different dimensions—not uniq
 - Validate all candidates using technical logs and payment-routing information before assigning a confirmed root cause.
 
 The priority categories are portfolio-defined operational rules and should not be presented as universal industry thresholds.
+
+## 6.5.4 Failure Analysis Summary and Recommendations
+
+### Summary
+
+The platform recorded an overall transaction failure rate of approximately 4.95%. Statistical monitoring identified two unusual daily failure spikes:
+
+- 30 June 2024, with a 7.42% failure rate.
+- 4 September 2024, with a 7.79% failure rate.
+
+The two incidents displayed different operational profiles. Five High Priority segments were identified on 30 June, while ten were identified on 4 September, indicating that the latter incident affected a broader range of operational dimensions.
+
+### Key Business Findings
+
+- Daily statistical monitoring can detect failure deterioration that may be hidden within monthly averages.
+- Failure-rate increases and absolute failure counts must be evaluated together.
+- High-volume categories can generate substantial customer impact even without the largest rate increase.
+- Different spike dates may require different operational responses.
+- Dimensional analysis identifies investigation candidates but does not establish technical causation.
+
+### Business Recommendations
+
+1. Implement automated daily failure-rate monitoring using statistical control limits.
+2. Generate alerts whenever a daily failure rate exceeds its upper control limit.
+3. Automatically create dimensional diagnostic reports for flagged dates.
+4. Prioritize segments showing both a material rate increase and meaningful failure volume.
+5. Monitor high-volume channels separately for capacity-related operational risk.
+6. Integrate bank, PSP, network, application-version, error-code, and payment-routing logs in a production implementation.
+7. Review operational thresholds periodically and adjust them according to business risk tolerance.
+
+### Analytical Limitation
+
+The dataset is synthetic and does not include detailed failure reasons, application versions, response codes, latency measurements, or technical routing logs. Therefore, the analysis identifies statistical associations and investigation priorities rather than confirmed technical root causes.
+
+### Conclusion
+
+The failure analysis transforms transaction records into an operational monitoring framework. It enables the UPI Transaction Intelligence Platform to detect unusual failure periods, identify affected business dimensions, prioritize investigation, and support proactive payment-performance management.
