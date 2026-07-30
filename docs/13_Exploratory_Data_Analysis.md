@@ -1201,3 +1201,61 @@ However, the difference remains modest and does not prove that weekend timing ca
 - Investigate weekend performance by hour, network, device, and bank.
 - Use a day-and-hour heatmap to identify more specific periods requiring attention.
 - Validate the weekend difference statistically before treating it as a persistent operational issue.
+
+## 6.4.6 Day-and-Hour Heatmap
+
+### Business Question
+
+Which weekday and hour combinations experience high transaction activity or elevated failure rates?
+
+### Objective
+
+To identify specific time windows that may require increased operational monitoring or processing capacity.
+
+### Key Findings
+
+| Day and Hour   | Transactions | Failed | Failure Rate |
+| -------------- | -----------: | -----: | -----------: |
+| Sunday, 10 AM  |        2,019 |    128 |        6.34% |
+| Monday, 10 PM  |        1,334 |     82 |        6.15% |
+| Friday, 7 PM   |        3,021 |    184 |        6.09% |
+| Tuesday, 8 AM  |        1,146 |     67 |        5.85% |
+| Saturday, 9 AM |        1,478 |     85 |        5.75% |
+
+### Observation
+
+Sunday at 10 AM recorded the highest qualifying failure rate at **6.34%**.
+
+Friday at 7 PM recorded a failure rate of **6.09%** and generated 184 failed transactions from 3,021 total transactions. It produced the largest failure count among the ten highest-rate combinations.
+
+Monday at 10 PM also recorded a high failure rate of **6.15%**, although its transaction volume was lower.
+
+Several combinations appeared during weekends, supporting the earlier observation that weekend performance was slightly weaker.
+
+### Business Interpretation
+
+Sunday at 10 AM has the highest relative failure exposure, while Friday at 7 PM represents the greatest operational priority because it combines high volume with an elevated failure rate.
+
+The heatmap provides more useful information than analysing weekday or hour independently because it identifies specific time windows rather than broad categories.
+
+The 500-transaction threshold reduces the risk of treating extremely small groups as important. However, sample sizes still vary across the listed combinations.
+
+These time windows are associated with elevated failures but are not confirmed causes.
+
+### Recommendation
+
+- Prioritize Friday at 7 PM for operational monitoring and capacity assessment.
+- Investigate Sunday at 10 AM and Monday at 10 PM as elevated-rate periods.
+- Analyse these time windows by bank, device, network, state, and amount band.
+- Add day-and-hour heatmaps to the Power BI failure dashboard.
+- Apply formal spike detection before labelling a period as anomalous.
+
+## 6.4 Time-Based Analysis Summary
+
+Transaction volume remained highly stable throughout the year after adjusting for active days.
+
+March recorded the highest monthly failure rate, while Sunday and weekend transactions showed slightly elevated failure performance.
+
+Transaction activity peaked during the evening, particularly at 7 PM. Friday at 7 PM emerged as an important operational window because it combined high volume and an above-average failure rate.
+
+These findings provide the time-based foundation for failure spike detection and multi-dimensional anomaly analysis.
