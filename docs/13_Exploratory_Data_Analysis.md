@@ -1160,3 +1160,44 @@ The analysis identifies time associations but does not establish why failures oc
 - Monitor early-morning failure rates, but interpret them cautiously because of their lower volumes.
 - Use hourly failure-rate thresholds and failure-count alerts in the dashboard.
 - Compare day-and-hour combinations using a heatmap.
+
+## 6.4.5 Weekday vs Weekend Analysis
+
+### Business Question
+
+Does transaction activity and failure performance differ between weekdays and weekends?
+
+### Objective
+
+To compare normalized transaction volume, average daily failures, and failure rates between weekday and weekend periods.
+
+### Findings
+
+| Day Type | Active Days | Average Daily Transactions | Average Daily Failures | Failure Rate |
+| -------- | ----------: | -------------------------: | ---------------------: | -----------: |
+| Weekday  |         261 |                     684.53 |                  33.50 |        4.89% |
+| Weekend  |         104 |                     685.93 |                  34.92 |        5.09% |
+
+### Observation
+
+Weekend average daily transaction volume was **685.93**, compared with 684.53 on weekdays. The difference was only 1.40 transactions per day.
+
+Weekend transactions recorded a failure rate of **5.09%**, compared with **4.89%** for weekdays.
+
+Average daily failures were also higher during weekends: 34.92 compared with 33.50 on weekdays.
+
+### Business Interpretation
+
+Transaction activity remains almost identical between weekdays and weekends. Therefore, weekend failure differences are not explained by substantially higher transaction volume.
+
+The weekend failure rate is 0.20 percentage points above the weekday rate. This supports the earlier finding that Saturday and Sunday recorded slightly elevated failure rates.
+
+However, the difference remains modest and does not prove that weekend timing caused the failures.
+
+### Recommendation
+
+- Maintain similar processing capacity during weekdays and weekends.
+- Apply slightly closer transaction-performance monitoring during weekends.
+- Investigate weekend performance by hour, network, device, and bank.
+- Use a day-and-hour heatmap to identify more specific periods requiring attention.
+- Validate the weekend difference statistically before treating it as a persistent operational issue.
