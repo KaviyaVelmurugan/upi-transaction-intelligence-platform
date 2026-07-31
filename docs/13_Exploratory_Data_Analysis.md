@@ -1530,3 +1530,41 @@ Do not present individual categories as general causes of transaction failure ba
 Continue monitoring the temporary spike-date segments identified in Section 6.5, but describe them as investigation candidates rather than persistent platform-wide failure drivers.
 
 A production analysis should include technical variables such as failure reasons, response codes, latency, payment routing, application version, bank availability, and network quality.
+
+## 6.6.3 Categorical Effect-Size Analysis
+
+### Business Question
+
+How strong are the relationships between transaction status and the tested categorical variables?
+
+### Objective
+
+To calculate bias-corrected Cramér’s V values and evaluate whether any statistically tested relationships have practical business importance.
+
+### Observation
+
+All twelve categorical variables produced negligible effect sizes.
+
+Receiver bank recorded the largest corrected Cramér’s V value at 0.004879. Sender age group, sender state, weekend status, day of week, and network type also produced values below 0.004.
+
+Transaction type, merchant category, receiver age group, sender bank, device type, and hour of day produced bias-corrected values of zero.
+
+None of the variables were statistically significant after false-discovery-rate correction.
+
+### Business Interpretation
+
+The selected categorical variables have almost no standalone relationship with transaction success or failure in the complete synthetic dataset.
+
+Some categories displayed slightly different descriptive failure rates during earlier EDA. However, the effect-size analysis demonstrates that these differences are too small to have meaningful platform-wide explanatory power.
+
+Bias-corrected values of zero do not mean the categories have perfectly identical failure rates. They indicate that the observed association was no greater than the amount expected from sampling variation after correction.
+
+The temporary spike-date patterns from Section 6.5 remain useful for operational investigation, but they should not be interpreted as persistent global failure drivers.
+
+### Recommendation
+
+Do not use transaction type, bank, state, device, network, or time category alone as a basis for operational decisions or failure prediction.
+
+These variables may still be retained as potential machine-learning features because combinations and interactions could contain information. Their value should be confirmed through cross-validation, feature importance, and out-of-sample model evaluation.
+
+A stronger production dataset should include technical failure attributes such as response codes, processing latency, application version, payment routing, network quality, and bank availability.
