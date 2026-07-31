@@ -1568,3 +1568,37 @@ Do not use transaction type, bank, state, device, network, or time category alon
 These variables may still be retained as potential machine-learning features because combinations and interactions could contain information. Their value should be confirmed through cross-validation, feature importance, and out-of-sample model evaluation.
 
 A stronger production dataset should include technical failure attributes such as response codes, processing latency, application version, payment routing, network quality, and bank availability.
+
+## 6.6.4 Transaction Amount vs Transaction Status
+
+### Business Question
+
+Do failed transactions have systematically different transaction amounts from successful transactions?
+
+### Objective
+
+To compare successful and failed transaction amounts using descriptive statistics, the Mann–Whitney U test, and rank-biserial effect size.
+
+### Observation
+
+Successful transactions recorded a mean amount of INR 1,309.56 and a median of INR 628. Failed transactions recorded a slightly higher mean of INR 1,354.01 and a median of INR 636.
+
+The mean difference was INR 44.45, while the median difference was only INR 8.
+
+The Mann–Whitney U test produced a p-value of 0.1566, which is above the 0.05 significance level.
+
+The rank-biserial effect size was 0.00754, indicating a negligible practical difference. The common-language probability was 50.38%.
+
+### Business Interpretation
+
+The amount distributions of successful and failed transactions are statistically and practically similar.
+
+The larger difference between the means is influenced by the strongly right-skewed transaction distribution and high-value outliers. The median comparison shows that the typical failed transaction is only INR 8 higher than the typical successful transaction.
+
+A randomly selected failed transaction has approximately a 50.38% probability of exceeding a randomly selected successful transaction—almost equivalent to chance.
+
+### Recommendation
+
+Transaction amount should not be treated as an independent explanation or rule for predicting transaction failure.
+
+It may still be retained as a machine-learning feature because nonlinear relationships and interactions with banks, devices, networks, and time variables could contain predictive information. Its contribution must be evaluated using out-of-sample model performance and explainability methods.
