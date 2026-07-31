@@ -1602,3 +1602,108 @@ A randomly selected failed transaction has approximately a 50.38% probability of
 Transaction amount should not be treated as an independent explanation or rule for predicting transaction failure.
 
 It may still be retained as a machine-learning feature because nonlinear relationships and interactions with banks, devices, networks, and time variables could contain predictive information. Its contribution must be evaluated using out-of-sample model performance and explainability methods.
+
+# 6.7 Consolidated Business Insights
+
+## 6.7.1 Transaction and Customer Activity
+
+P2P transactions form the largest transaction type at 44.98%, followed by P2M transactions at 35.06%. Together, these categories represent approximately 80% of platform activity.
+
+Grocery is the leading merchant category with 19.99% of transactions, followed by Food and Shopping. This demonstrates that the platform is primarily used for everyday consumer payments.
+
+Android accounts for 75.11% of transactions, while 4G supports 59.93% of network activity. Platform reliability improvements affecting Android and 4G users would therefore reach the largest share of customers.
+
+## 6.7.2 Bank and Geographic Activity
+
+SBI handles approximately one-quarter of both sender and receiver transaction activity, creating the platform’s largest bank-level volume exposure.
+
+Maharashtra contributes 14.97% of sender transactions, followed by Uttar Pradesh and Karnataka. High-volume states require scalable monitoring, but their larger transaction counts should not automatically be interpreted as higher operational risk.
+
+## 6.7.3 Transaction Performance
+
+The platform recorded a 95.05% transaction success rate and a 4.95% failure rate.
+
+Transaction type, merchant category, banks, states, devices, and networks showed only small descriptive variations in failure rates. Statistical testing found no reliable platform-wide categorical associations after multiple-testing correction, and every corrected Cramér’s V effect size was negligible.
+
+Transaction amount also showed no statistically significant or practically meaningful relationship with transaction status.
+
+## 6.7.4 Time and Operational Risk
+
+Monthly transaction activity remained relatively stable after accounting for the number of active days.
+
+March recorded the highest monthly failure rate at 5.38%. Sunday recorded the highest day-level failure rate at 5.10%, while weekends recorded a modestly higher rate than weekdays.
+
+The 7 PM hour generated the greatest transaction and failure volume, making it the most important capacity-monitoring period.
+
+Daily statistical monitoring detected two unusual failure dates: 30 June and 4 September 2024. The latter event affected a broader collection of high-priority operational segments.
+
+These spike-date segments are investigation candidates and should not be interpreted as confirmed technical causes.
+
+## 6.7.5 Fraud Risk
+
+The dataset contains 480 fraud-labelled transactions, representing a fraud rate of 0.192% and an imbalance ratio of approximately 520 normal transactions for every fraud transaction.
+
+Fraud and transaction failure are different outcomes and must not be combined. Future fraud modeling should use precision, recall, F1-score, precision-recall AUC, confusion matrices, and cost-sensitive evaluation instead of accuracy alone.
+
+## 6.7.6 Business Recommendations
+
+1. Implement daily failure-rate monitoring using statistical control limits.
+2. Prioritize platform capacity and reliability monitoring around 7 PM.
+3. Closely monitor high-volume Android, 4G, SBI, P2P, and P2M activity.
+4. Generate dimensional diagnostic reports automatically for detected failure spikes.
+5. Avoid presenting minor category-level rate differences as confirmed failure causes.
+6. Enrich future data with response codes, latency, application versions, routing information, and failure reasons.
+7. Treat fraud detection as a separate, highly imbalanced machine-learning problem.
+8. Validate all predictive features through out-of-sample model evaluation.
+
+# 6.8 Final Exploratory Data Analysis Summary
+
+## Objective
+
+The objective of Phase 6 was to transform the validated UPI transaction dataset into actionable business and operational insights while establishing a reliable analytical foundation for SQL, dashboarding, and machine learning.
+
+## Completed Analytical Coverage
+
+Phase 6 included:
+
+- Dataset overview and validation recap.
+- Univariate transaction-distribution analysis.
+- Bivariate transaction-failure comparisons.
+- Monthly, weekday, weekend, hourly, and day-hour analysis.
+- Statistical daily failure-spike detection.
+- Root-cause candidate investigation.
+- Operational risk prioritization.
+- Failure-rate confidence estimation.
+- Categorical chi-square association testing.
+- Cramér’s V effect-size analysis.
+- Transaction-amount statistical comparison.
+- Consolidated business recommendations.
+
+## Final Conclusion
+
+The platform processed 250,000 transactions with a 95.05% success rate and a 4.95% failure rate.
+
+Most transaction activity is concentrated in P2P and P2M payments, Android devices, 4G networks, SBI-linked transactions, and everyday merchant categories.
+
+Time-based analysis identified 7 PM as the most important capacity window, while daily statistical monitoring detected two unusual failure dates.
+
+However, inferential testing found no strong platform-wide relationship between transaction status and the available transaction, customer, bank, geographic, device, network, time, or amount features. This indicates that the dataset supports descriptive analytics and operational anomaly monitoring more strongly than persistent root-cause attribution.
+
+## Limitations
+
+- The dataset is synthetic.
+- Detailed failure reasons and technical response codes are unavailable.
+- Customer and merchant identifiers required for behavioural segmentation are limited.
+- Technical latency, routing, application-version, and bank-availability data are absent.
+- Statistical associations cannot establish causation.
+- Findings should not be generalized directly to a real UPI production environment.
+
+## Readiness for the Next Phase
+
+Phase 6 is complete. Its verified KPIs, dimensions, business questions, and operational findings will guide:
+
+- Phase 7 SQL query development.
+- Power BI dashboard measures and visual design.
+- Failure-prediction feature engineering.
+- Fraud-detection model development.
+- Final business recommendations and portfolio storytelling.
