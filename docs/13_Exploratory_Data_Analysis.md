@@ -1494,3 +1494,39 @@ The interval is also not a replacement for the daily control limits used in Sect
 ### Recommendation
 
 Use the estimated failure rate as a portfolio baseline for performance reporting. Production systems should calculate confidence intervals and operational control limits using recent real transaction data and update them periodically as transaction behaviour changes.
+
+## 6.6.2 Categorical Association Tests
+
+### Business Question
+
+Are transaction failures statistically associated with transaction, customer, bank, geographic, device, network, or time-related categories?
+
+### Objective
+
+To apply chi-square independence tests and evaluate whether transaction status is systematically associated with the selected categorical variables.
+
+### Observation
+
+Twelve categorical variables were tested against transaction status. None remained statistically significant after applying the Benjamini–Hochberg false-discovery-rate correction.
+
+The weekend indicator initially produced an unadjusted p-value of 0.041, but its adjusted p-value increased to 0.440. Therefore, it should not be considered statistically significant after accounting for multiple tests.
+
+Receiver bank produced the largest chi-square statistic among the banking variables, but its adjusted p-value was also 0.440 and was not statistically significant.
+
+All minimum expected cell counts were substantially greater than five, indicating that the chi-square sample-size assumption was satisfied.
+
+### Business Interpretation
+
+The descriptive failure-rate differences observed across banks, states, devices, networks, transaction types, and time categories are not strong enough to demonstrate systematic relationships with transaction status in this synthetic dataset.
+
+This does not prove that the variables are completely unrelated to failures. It means the available evidence is insufficient to reject statistical independence after controlling for multiple comparisons.
+
+The result is consistent with a synthetic dataset in which transaction failures may have been generated approximately independently of most transaction characteristics.
+
+### Recommendation
+
+Do not present individual categories as general causes of transaction failure based only on small descriptive rate differences.
+
+Continue monitoring the temporary spike-date segments identified in Section 6.5, but describe them as investigation candidates rather than persistent platform-wide failure drivers.
+
+A production analysis should include technical variables such as failure reasons, response codes, latency, payment routing, application version, bank availability, and network quality.
