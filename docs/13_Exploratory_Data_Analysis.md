@@ -1466,3 +1466,31 @@ The dataset is synthetic and does not include detailed failure reasons, applicat
 ### Conclusion
 
 The failure analysis transforms transaction records into an operational monitoring framework. It enables the UPI Transaction Intelligence Platform to detect unusual failure periods, identify affected business dimensions, prioritize investigation, and support proactive payment-performance management.
+
+## 6.6.1 Overall Failure-Rate Confidence Interval
+
+### Business Question
+
+What range is likely to contain the platform’s underlying transaction failure rate?
+
+### Objective
+
+To calculate a 95% Wilson confidence interval around the observed UPI transaction failure rate.
+
+### Observation
+
+The dataset contains 250,000 transactions, of which 12,376 failed. The observed transaction failure rate is 4.950%.
+
+The calculated 95% Wilson confidence interval ranges from 4.866% to 5.036%.
+
+### Business Interpretation
+
+The narrow confidence interval indicates that the estimated failure rate is statistically precise within this dataset, primarily because of the large number of transaction records.
+
+The platform’s typical failure level is therefore close to 5%. However, this interval measures statistical uncertainty within the synthetic dataset and should not be treated as proof of the failure rate for a real production UPI platform.
+
+The interval is also not a replacement for the daily control limits used in Section 6.5 because daily transaction volumes and uncertainty differ.
+
+### Recommendation
+
+Use the estimated failure rate as a portfolio baseline for performance reporting. Production systems should calculate confidence intervals and operational control limits using recent real transaction data and update them periodically as transaction behaviour changes.
