@@ -196,3 +196,71 @@ Because no material data-quality issues were detected, the dataset can proceed t
 ### Conclusion
 
 SQL Data Quality Validation was completed successfully. All validation checks returned zero issues and received a PASS status.
+
+## 7.3 Core Business KPIs
+
+### Objective
+
+The objective of this section was to calculate executive-level transaction, monetary, operational, fraud, and business-target KPIs using PostgreSQL.
+
+### 7.3.1 Executive Transaction KPIs
+
+| KPI                       |       Result |
+| ------------------------- | -----------: |
+| Total Transactions        |      250,000 |
+| Successful Transactions   |      237,624 |
+| Failed Transactions       |       12,376 |
+| Success Rate              |       95.05% |
+| Failure Rate              |        4.95% |
+| Total Transaction Value   | ₹327,939,009 |
+| Average Transaction Value |    ₹1,311.76 |
+| Fraud Transactions        |          480 |
+| Fraud Rate                |       0.192% |
+
+### 7.3.2 Transaction Value KPIs
+
+The average transaction value was ₹1,311.76, while the median was ₹629.00. This difference indicates a right-skewed transaction-value distribution influenced by a smaller number of high-value payments.
+
+Transaction values ranged from ₹10 to ₹42,099. The 95th percentile was ₹4,687.05, meaning 95% of transactions had values at or below this amount.
+
+### 7.3.3 Transaction Status and Value Exposure
+
+Successful transactions processed ₹311,181,812, representing 94.89% of total attempted transaction value.
+
+Failed payment attempts involved ₹16,757,197, representing 5.11% of attempted value. Failed transactions accounted for 4.95% of volume but 5.11% of value because their average value of ₹1,354.01 was slightly higher than the successful transaction average of ₹1,309.56.
+
+The failed amount represents attempted payment value exposed to failure and should not be interpreted as confirmed revenue loss.
+
+### 7.3.4 Fraud Exposure KPIs
+
+The dataset contained 480 fraud-flagged transactions, representing 0.192% of transaction volume.
+
+Fraud-flagged transactions were associated with ₹719,631, or 0.219% of total transaction value. Their average value was ₹1,499.23, approximately 14.32% higher than the normal transaction average of ₹1,311.40.
+
+Only 21 fraud-flagged transactions failed. Therefore, transaction failure should not be treated as a direct indicator of fraud because a fraud-flagged transaction may still be processed successfully.
+
+### 7.3.5 Business Target Gap Analysis
+
+| KPI          | Current |        Target |                    Gap |
+| ------------ | ------: | ------------: | ---------------------: |
+| Success Rate |  95.05% |        98.50% | 3.45 percentage points |
+| Failure Rate |   4.95% | Maximum 1.50% | 3.45 percentage points |
+
+To achieve a 98.50% success rate at the current transaction volume:
+
+- Successful transactions must increase from 237,624 to 246,250.
+- An additional 8,626 transactions must complete successfully.
+- Failed transactions must decrease from 12,376 to no more than 3,750.
+- Approximately 69.70% of current failures must be prevented.
+
+The current platform performance is therefore classified as **BELOW TARGET**.
+
+### Business Interpretation
+
+The platform processes substantial transaction volume and value, but its 4.95% failure rate remains significantly above the business target of 1.50%. Failed payment attempts also represent a slightly larger proportion of monetary value than transaction volume.
+
+Fraud prevalence is low, but fraud-flagged transactions have higher average values and should be monitored separately from operational payment failures.
+
+### Conclusion
+
+The SQL KPI analysis established a reliable executive baseline for monitoring transaction performance, monetary exposure, fraud activity, and progress toward the project’s business objectives.
