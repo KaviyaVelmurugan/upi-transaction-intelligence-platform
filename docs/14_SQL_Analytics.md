@@ -264,3 +264,110 @@ Fraud prevalence is low, but fraud-flagged transactions have higher average valu
 ### Conclusion
 
 The SQL KPI analysis established a reliable executive baseline for monitoring transaction performance, monetary exposure, fraud activity, and progress toward the project’s business objectives.
+
+## 7.4 Dimensional Analysis
+
+### Objective
+
+The objective of dimensional analysis was to compare transaction volume, monetary value, payment reliability, and fraud exposure across major business dimensions.
+
+Each dimension was evaluated using:
+
+- Total transactions
+- Transaction share
+- Successful and failed transactions
+- Success and failure rates
+- Total and average transaction value
+- Transaction-value share
+- Fraud count and fraud rate
+
+### 7.4.1 Transaction Type Performance
+
+P2P was the dominant transaction type, representing 44.98% of transaction volume and 44.87% of total value.
+
+P2M had the highest average transaction value at ₹1,320.07. Recharge had the highest failure rate at 5.09%, while Bill Payment had the lowest at 4.88%.
+
+The differences between transaction-type failure rates were small, indicating that transaction type alone was not a major standalone failure driver.
+
+### 7.4.2 Merchant Category Performance
+
+Grocery recorded the highest volume with 49,966 transactions, representing 19.99% of total activity.
+
+Shopping generated the highest transaction value at ₹76.86 million, representing 23.44% of platform value.
+
+Education represented only 3.04% of transaction volume but 11.80% of total value. It had the highest average transaction value at ₹5,094.02 and the highest merchant-category failure rate at 5.25%.
+
+Education should therefore receive operational attention because its transactions are relatively high-value despite their lower frequency.
+
+### 7.4.3 Sender Bank Performance
+
+SBI processed the highest sender-side volume, with 62,693 transactions and 25.25% of total value.
+
+SBI also recorded the highest absolute number of sender-side failures because it handled the largest workload. However, Yes Bank had the highest relative failure rate at 5.10%.
+
+HDFC had the lowest sender-side failure rate at 4.82%.
+
+### 7.4.4 Receiver Bank Performance
+
+SBI received the highest transaction volume, with 62,378 transactions and 25.18% of total value.
+
+HDFC recorded the highest receiver-side failure rate at 5.17%, while IndusInd recorded the lowest at 4.66%.
+
+HDFC performed differently depending on its transaction role: it had the lowest failure rate as a sender bank but the highest as a receiver bank. Sender-side and receiver-side bank performance should therefore be monitored separately.
+
+### 7.4.5 Sender State Performance
+
+Maharashtra generated the highest transaction volume, with 37,427 transactions and ₹49.04 million in value.
+
+Uttar Pradesh had the highest state-level failure rate at 5.22%, followed by Tamil Nadu at 5.12%.
+
+Telangana had the lowest failure rate at 4.71%. Rajasthan had the highest average transaction value at ₹1,337.79.
+
+Geographical differences were relatively small and should not be interpreted as direct causes of transaction failure without additional investigation.
+
+### 7.4.6 Device Type Performance
+
+Android dominated platform usage, representing 75.11% of transactions and 75.24% of transaction value.
+
+Web had the highest device-level failure rate at 5.15%, while iOS had the lowest at 4.93%.
+
+Although Android recorded the largest number of failed transactions, this was primarily caused by its much larger transaction volume.
+
+### 7.4.7 Network Type Performance
+
+4G was the dominant network, representing 59.93% of transactions and 59.66% of total transaction value.
+
+3G had the highest network-level failure rate at 5.22%. Both 5G and WiFi had the lowest rate at 4.86%.
+
+WiFi recorded the highest fraud rate at 0.235%, while 5G recorded the lowest at 0.184%. These differences were small and should be treated as monitoring signals rather than confirmed fraud causes.
+
+### Cross-Dimensional Business Insights
+
+High-volume segments creating the greatest operational workload were:
+
+- P2P transactions
+- Grocery payments
+- SBI as sender and receiver bank
+- Maharashtra
+- Android devices
+- 4G networks
+
+Segments with comparatively elevated failure rates were:
+
+- Recharge transactions
+- Education payments
+- Yes Bank as sender
+- HDFC as receiver
+- Uttar Pradesh
+- Web devices
+- 3G networks
+
+Failure count and failure rate represent different business concerns. High-volume segments produce more failures in absolute terms, while high-rate segments indicate relatively weaker performance.
+
+Rate differences across most dimensions were narrow. These findings should therefore guide monitoring and deeper root-cause analysis rather than be interpreted as proof of causation.
+
+### Conclusion
+
+Dimensional SQL analysis identified the platform’s largest workload segments, comparatively weaker-performing categories, high-value business areas, and fraud-monitoring signals.
+
+The results provide a structured foundation for time-series analysis, operational risk analysis, and Power BI dashboard filters.
