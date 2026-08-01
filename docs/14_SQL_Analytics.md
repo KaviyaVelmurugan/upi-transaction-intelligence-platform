@@ -158,3 +158,41 @@ Phase 7.2 — SQL Data Quality Validation
 ```
 
 Section 7.2 will perform deeper SQL-based validation of null values, invalid categories, numerical ranges, timestamp consistency, and derived time fields.
+
+## 7.2 SQL Data Quality Validation
+
+### Objective
+
+The objective of this section was to verify the completeness, uniqueness, consistency, validity, and business reliability of the UPI transaction data after importing it into PostgreSQL.
+
+### Validation Results
+
+| Section | Validation                            | Issues Detected | Status |
+| ------- | ------------------------------------- | --------------: | ------ |
+| 7.2.1   | Missing-value validation              |               0 | PASS   |
+| 7.2.2   | Duplicate transaction validation      |               0 | PASS   |
+| 7.2.3   | Categorical profile validation        |    0 mismatches | PASS   |
+| 7.2.4   | Blank-text validation                 |               0 | PASS   |
+| 7.2.5   | Numerical and binary range validation |               0 | PASS   |
+| 7.2.6   | Timestamp consistency validation      |               0 | PASS   |
+| 7.2.7   | Business-domain validation            |               0 | PASS   |
+
+### Key Findings
+
+- All 250,000 transaction records contain complete information.
+- Every transaction ID is unique.
+- No blank values were detected in text columns.
+- Transaction amounts, hours, fraud flags, and weekend indicators contain valid values.
+- The stored hour, weekday, and weekend fields are consistent with the transaction timestamp.
+- All categorical fields contain approved business-domain values.
+- The PostgreSQL data matches the quality results previously obtained using Python.
+
+### Business Interpretation
+
+The imported transaction table is sufficiently reliable for KPI calculation, dimensional analysis, time-series reporting, operational failure analysis, and Power BI dashboard development.
+
+Because no material data-quality issues were detected, the dataset can proceed to the business analytics stage without corrective SQL transformations.
+
+### Conclusion
+
+SQL Data Quality Validation was completed successfully. All validation checks returned zero issues and received a PASS status.
