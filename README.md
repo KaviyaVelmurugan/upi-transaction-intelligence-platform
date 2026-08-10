@@ -2,13 +2,14 @@
 
 ## Project Overview
 
-The UPI Transaction Operational Intelligence Platform is a FinTech analytics project designed to help business and operations teams understand UPI transaction performance.
+A FinTech Operational Intelligence Platform that helps business and operations teams monitor transaction health, analyze failure trends, evaluate bank performance, and support operational decision-making using SQL, Power BI, and Machine Learning.
 
 The platform analyzes transaction success and failure patterns, bank-wise performance, time-based trends, merchant categories, device usage, and network-related behaviour.
 
 The main purpose of the project is not only to report transaction failures, but also to provide operational insights that can support faster and more informed decision-making.
 
 ---
+
 ## Business Problem
 
 UPI platforms process a large number of transactions every day. When transaction failures increase, business and operations teams may not have enough visibility to identify the affected banks, time periods, transaction categories, or possible operational causes.
@@ -40,6 +41,7 @@ The objective of this project is to build a UPI operational intelligence solutio
 - ⬜ Phase 10 – Final Documentation
 
 ---
+
 ## How This Project Is Different
 
 Many transaction analytics projects mainly focus on displaying transaction counts, success rates, and failure rates.
