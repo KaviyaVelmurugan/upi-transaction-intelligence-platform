@@ -203,6 +203,15 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Dynamic ingestion pipeline
+# Keep incoming business data and credentials local.
+data/incoming/*
+!data/incoming/.gitkeep
+data/archive/*
+!data/archive/.gitkeep
+data/rejected/*
+!data/rejected/.gitkeep
+
 # Ruff stuff:
 .ruff_cache/
 

@@ -1,4 +1,4 @@
-# # UPI Transaction Operational Intelligence Platform
+# UPI Transaction Operational Intelligence Platform
 
 ## Project Overview
 
@@ -56,6 +56,24 @@ This project is positioned as an operational intelligence platform. It focuses o
 
 The project combines business understanding, Python-based analysis, SQL analytics, Power BI visualisation, and machine learning into one structured FinTech solution.
 
+## Dynamic Analytics Architecture
+
+The platform is designed to accept additional transaction batches without rebuilding the analysis. New CSV records are validated, copied into a PostgreSQL staging table, and merged into the stable transaction table using `transaction_id` as the unique key.
+
+```text
+New transaction CSV
+        -> Python ingestion command
+        -> PostgreSQL staging table
+        -> Transaction-ID upsert
+        -> Stable production table
+        -> Reusable SQL views
+        -> Power BI refresh or DirectQuery
+```
+
+Existing Transaction IDs are updated only when their stored values change. New IDs are appended, unchanged IDs are skipped, and every ingestion run is recorded in an audit table.
+
+See [`docs/15_Dynamic_Data_Pipeline.md`](docs/15_Dynamic_Data_Pipeline.md) for setup and operating instructions.
+
 ## Project Structure
 
 ```text
@@ -63,6 +81,8 @@ docs/         -> Business documentation
 data/         -> Raw and processed datasets
 notebooks/    -> Jupyter notebooks
 src/          -> Python source code
+scripts/      -> Repeatable transaction ingestion
+sql/          -> Schema, upsert logic, views, and business analytics
 dashboard/    -> Power BI files
 diagrams/     -> Architecture and process diagrams
 images/       -> Screenshots and visuals
