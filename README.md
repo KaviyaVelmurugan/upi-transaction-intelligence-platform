@@ -35,7 +35,7 @@ The objective of this project is to build a UPI operational intelligence solutio
 - ✅ Phase 4 – Data Collection
 - ✅ Phase 5 – Data Quality & Cleaning
 - ✅ Phase 6 – Exploratory Data Analysis
-- ✅Phase 7 – SQL Analytics 
+- ✅Phase 7 – SQL Analytics
 - 🟡 Phase 8 – Power BI Dashboard (In Progress)
 - ⬜ Phase 9 – Machine Learning
 - ⬜ Phase 10 – Final Documentation
@@ -88,3 +88,27 @@ diagrams/     -> Architecture and process diagrams
 images/       -> Screenshots and visuals
 linkedin/     -> LinkedIn article drafts
 ```
+
+## Power BI Operational Dashboard
+
+The five-page Power BI dashboard connects to PostgreSQL using DirectQuery, allowing the report to retrieve current analytical results from reusable SQL views.
+
+### 1. Executive Overview
+
+![Executive Overview](dashboard/images/01_executive_overview.png)
+
+### 2. Transaction Health Intelligence
+
+![Transaction Health](dashboard/images/02_transaction_health.png)
+
+### 3. Bank Performance Intelligence
+
+![Bank Performance](dashboard/images/03_bank_performance.png)
+
+### 4. Merchant and Channel Intelligence
+
+![Merchant and Channel](dashboard/images/04_merchant_channel.png)
+
+### 5. Operational Monitoring Intelligence
+
+![Operational Monitoring](dashboard/images/05_operational_monitoring.png)
