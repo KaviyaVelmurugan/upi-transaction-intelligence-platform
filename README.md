@@ -36,8 +36,8 @@ The objective of this project is to build a UPI operational intelligence solutio
 - ✅ Phase 5 – Data Quality & Cleaning
 - ✅ Phase 6 – Exploratory Data Analysis
 - ✅Phase 7 – SQL Analytics
-- 🟡 Phase 8 – Power BI Dashboard (In Progress)
-- ⬜ Phase 9 – Machine Learning
+- ✅ Phase 8 – Power BI Dashboard
+- 🟡 Phase 9 – Machine Learning (In Progress)
 - ⬜ Phase 10 – Final Documentation
 
 ---
