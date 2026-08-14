@@ -37,8 +37,8 @@ The objective of this project is to build a UPI operational intelligence solutio
 - ✅ Phase 6 – Exploratory Data Analysis
 - ✅Phase 7 – SQL Analytics
 - ✅ Phase 8 – Power BI Dashboard
-- 🟡 Phase 9 – Machine Learning (In Progress)
-- ⬜ Phase 10 – Final Documentation
+- ✅ Phase 9 – Machine Learning
+- 🟡 Phase 10 – Final Documentation (In Progress)
 
 ---
 
@@ -112,3 +112,50 @@ The five-page Power BI dashboard connects to PostgreSQL using DirectQuery, allow
 ### 5. Operational Monitoring Intelligence
 
 ![Operational Monitoring](dashboard/images/05_operational_monitoring.png)
+
+## Machine Learning and Anomaly Detection
+
+Phase 9 evaluated two AI capabilities: transaction-failure prediction and behavioural anomaly detection.
+
+### Transaction Failure Prediction
+
+Three classification approaches were evaluated using a chronological train–test split:
+
+| Model               | Failure Precision | Failure Recall | Failure F1 | PR-AUC | ROC-AUC |
+| ------------------- | ----------------: | -------------: | ---------: | -----: | ------: |
+| Dummy Baseline      |             0.00% |          0.00% |      0.00% |  4.85% |  50.00% |
+| Logistic Regression |             4.83% |         47.32% |      8.76% |  4.78% |  49.50% |
+| Random Forest       |             4.44% |          3.83% |      4.11% |  4.83% |  50.05% |
+
+The available transaction attributes did not provide sufficient predictive signal for reliable failure prediction. Therefore, no failure classifier was presented as production-ready.
+
+This decision prevents misleading conclusions based only on accuracy and demonstrates responsible model evaluation for imbalanced financial data.
+
+### Behavioural Anomaly Detection
+
+An Isolation Forest pipeline was developed using 13 behavioural features, including transaction context, log-transformed amount and cyclical hour features.
+
+| Risk Band    | Transactions |  Share | Failure Rate | Average Amount |
+| ------------ | -----------: | -----: | -----------: | -------------: |
+| Normal       |      237,500 | 95.00% |       4.947% |      ₹1,291.59 |
+| Monitor      |       10,000 |  4.00% |       4.980% |      ₹1,668.66 |
+| High Anomaly |        2,500 |  1.00% |       5.120% |      ₹1,799.56 |
+
+The model identifies behavioural unusualness rather than confirmed fraud. High-anomaly transactions are placed in an investigation queue for operational review.
+
+### Database Integration
+
+Anomaly scores were loaded into PostgreSQL using an idempotent upsert workflow based on Transaction ID.
+
+The following reusable views support reporting and investigation:
+
+- `vw_anomaly_risk_summary`
+- `vw_high_anomaly_review_queue`
+
+Supporting files:
+
+- [`notebooks/04_failure_prediction.ipynb`](notebooks/04_failure_prediction.ipynb)
+- [`notebooks/06_anomaly_detection.ipynb`](notebooks/06_anomaly_detection.ipynb)
+- [`scripts/load_anomaly_scores.py`](scripts/load_anomaly_scores.py)
+- [`sql/anomaly_detection.sql`](sql/anomaly_detection.sql)
+- [`docs/17_Machine_Learning_and_Anomaly_Detection.md`](docs/17_Machine_Learning_and_Anomaly_Detection.md)

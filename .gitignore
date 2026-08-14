@@ -225,3 +225,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated anomaly-detection artifacts
+data/processed/anomaly_scores.csv
+models/*.joblib
+
