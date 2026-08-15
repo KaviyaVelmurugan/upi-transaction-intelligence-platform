@@ -369,7 +369,6 @@ Supporting files:
 | [`10_PowerBI_Dashboard_Requirements.md`](docs/10_PowerBI_Dashboard_Requirements.md)                 | Dashboard pages, stakeholders, KPIs and reporting requirements     |
 | [`11_Machine_Learning_and_Anomaly_Detection.md`](docs/11_Machine_Learning_and_Anomaly_Detection.md) | Failure-model evaluation and Isolation Forest implementation       |
 | [`12_Final_Project_Report.md`](docs/12_Final_Project_Report.md)                                     | Final executive summary, verified outcomes and project sign-off    |
-| [`13_Portfolio_and_Interview_Guide.md`](docs/13_Portfolio_and_Interview_Guide.md)                   | Resume bullets and interview-ready project explanations            |
 
 ## Business Recommendations
 
